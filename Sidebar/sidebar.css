@@ -1,0 +1,155 @@
+/* Ledgerly sidebar. Uses the colour tokens (--sf, --bd, --ac, ...) defined by the page. */
+aside {
+  width: 232px;
+  background: var(--sf);
+  border-right: 1px solid var(--bd);
+  padding: 20px 12px;
+  flex: none
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 17px;
+  padding: 0 10px 2px
+}
+
+.logo b {
+  color: var(--ac)
+}
+
+.ws {
+  color: var(--mu);
+  font-size: 12px;
+  padding: 0 10px 14px
+}
+
+.grp {
+  font-size: 11px;
+  letter-spacing: .06em;
+  color: var(--mu);
+  padding: 14px 10px 4px
+}
+
+nav .nv {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  padding: 7px 10px;
+  border-radius: 8px;
+  color: var(--mu);
+  margin-bottom: 1px;
+  background: none;
+  border: 0;
+  text-align: left;
+  text-decoration: none;
+  font: inherit;
+  cursor: pointer
+}
+
+nav .nv:hover {
+  color: var(--tx)
+}
+
+nav .nv.on {
+  background: var(--acs);
+  color: var(--ac);
+  font-weight: 600
+}
+
+nav .nv[aria-disabled=true] {
+  opacity: .55;
+  cursor: default
+}
+
+nav .nv:focus-visible,
+.theme button:focus-visible {
+  outline: 2px solid var(--ac);
+  outline-offset: 2px
+}
+
+.nv .dot {
+  margin-left: auto;
+  background: var(--er);
+  color: #fff;
+  border-radius: 99px;
+  font-size: 11px;
+  padding: 0 6px
+}
+
+.theme {
+  margin: 18px 4px 0;
+  display: flex;
+  background: var(--bg);
+  border: 1px solid var(--bd);
+  border-radius: 10px;
+  padding: 2px
+}
+
+.theme button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 0;
+  background: none;
+  color: var(--mu);
+  padding: 6px 4px;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer
+}
+
+.theme button:hover {
+  color: var(--tx)
+}
+
+.theme button.on {
+  background: var(--sf);
+  color: var(--tx);
+  font-weight: 600;
+  box-shadow: 0 1px 2px #0002
+}
+
+@media(max-width:760px) {
+  aside {
+    width: auto;
+    padding: 8px;
+    overflow-x: auto;
+    display: flex;
+    align-items: center;
+    border-right: 0;
+    border-bottom: 1px solid var(--bd)
+  }
+
+  .logo,
+  .ws,
+  .grp {
+    display: none
+  }
+
+  nav {
+    display: flex
+  }
+
+  .sb-g {
+    display: flex
+  }
+
+  nav .nv {
+    white-space: nowrap;
+    width: auto;
+    margin: 0
+  }
+
+  .theme {
+    margin: 0 0 0 8px;
+    flex: none
+  }
+
+  .theme button span {
+    display: none
+  }
+}

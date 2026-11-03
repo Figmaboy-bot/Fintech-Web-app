@@ -1,0 +1,73 @@
+/* Ledgerly design tokens, theme switching and base reset. Shared by every page. */
+:root {
+  --bg: #f6f7f9;
+  --sf: #fff;
+  --tx: #14171f;
+  --mu: #6b7280;
+  --bd: #e5e7eb;
+  --ac: #3b4cca;
+  --acs: #eceefc;
+  --ok: #15803d;
+  --oks: #e3f6ea;
+  --er: #b91c1c;
+  --ers: #fdeaea;
+  --wn: #a15c07;
+  --wns: #fdf1dc;
+  color-scheme: light dark;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px)
+}
+
+@media(prefers-color-scheme:dark) {
+  :root:not([data-theme=light]) {
+    --bg: #0f1115;
+    --sf: #171a21;
+    --tx: #eceef3;
+    --mu: #9aa1b0;
+    --bd: #2a2e39;
+    --ac: #8b97ff;
+    --acs: #23274a;
+    --ok: #4ade80;
+    --oks: #143023;
+    --er: #f87171;
+    --ers: #3a1a1a;
+    --wn: #fbbf24;
+    --wns: #3a2c10
+  }
+}
+
+:root[data-theme=dark] {
+  --bg: #0f1115;
+  --sf: #171a21;
+  --tx: #eceef3;
+  --mu: #9aa1b0;
+  --bd: #2a2e39;
+  --ac: #8b97ff;
+  --acs: #23274a;
+  --ok: #4ade80;
+  --oks: #143023;
+  --er: #f87171;
+  --ers: #3a1a1a;
+  --wn: #fbbf24;
+  --wns: #3a2c10;
+  color-scheme: dark
+}
+
+:root[data-theme=light] {
+  color-scheme: light
+}
+
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px)
+}
+
+* {
+  box-sizing: border-box
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--tx);
+  font: 14px/1.5 Inter, system-ui, -apple-system, Segoe UI, sans-serif
+}

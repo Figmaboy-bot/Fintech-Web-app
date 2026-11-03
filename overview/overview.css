@@ -1,0 +1,330 @@
+.app {
+  display: flex;
+  min-height: 100vh
+}
+
+.ni {
+  display: flex;
+  align-items: center;
+  gap: 9px
+}
+
+.qa .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 24px 28px;
+  max-width: 1180px
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 18px
+}
+
+h1 {
+  font-size: 22px;
+  margin: 0
+}
+
+.sub {
+  color: var(--mu);
+  margin: 2px 0 0
+}
+
+h2 {
+  font-size: 15px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 7px
+}
+
+.qa {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap
+}
+
+button {
+  font: inherit;
+  cursor: pointer
+}
+
+.btn {
+  border: 1px solid var(--bd);
+  background: var(--sf);
+  color: var(--tx);
+  padding: 7px 13px;
+  border-radius: 8px
+}
+
+.btn:hover {
+  border-color: var(--ac)
+}
+
+.btn.p {
+  background: var(--ac);
+  border-color: var(--ac);
+  color: #fff
+}
+
+.alert {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  background: var(--wns);
+  color: var(--wn)
+}
+
+.alert.i {
+  background: var(--acs);
+  color: var(--ac)
+}
+
+.alert button {
+  background: none;
+  border: 0;
+  color: inherit;
+  font-size: 16px
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 14px 0
+}
+
+.card {
+  background: var(--sf);
+  border: 1px solid var(--bd);
+  border-radius: 12px;
+  padding: 16px
+}
+
+.stat small {
+  color: var(--mu);
+  display: block
+}
+
+.stat b {
+  font-size: 22px;
+  display: block;
+  margin-top: 2px
+}
+
+.d {
+  font-size: 12px
+}
+
+.up {
+  color: var(--ok)
+}
+
+.dn {
+  color: var(--er)
+}
+
+.g {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 14px
+}
+
+.g2 {
+  grid-template-columns: 2fr 1fr
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px
+}
+
+.seg {
+  display: flex;
+  background: var(--bg);
+  border: 1px solid var(--bd);
+  border-radius: 8px;
+  padding: 2px
+}
+
+.seg button {
+  border: 0;
+  background: none;
+  color: var(--mu);
+  padding: 3px 10px;
+  border-radius: 6px
+}
+
+.seg .on {
+  background: var(--sf);
+  color: var(--tx);
+  font-weight: 600;
+  box-shadow: 0 1px 2px #0002
+}
+
+.leg {
+  display: flex;
+  gap: 14px;
+  color: var(--mu);
+  font-size: 12px;
+  margin: 8px 0 0
+}
+
+.leg i {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+  margin-right: 5px
+}
+
+svg {
+  width: 100%;
+  height: auto;
+  display: block
+}
+
+svg text {
+  fill: var(--mu);
+  font-size: 11px
+}
+
+.acc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--bd)
+}
+
+.acc:last-child {
+  border: 0
+}
+
+.flag {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--acs);
+  color: var(--ac);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 12px;
+  margin-right: 10px
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse
+}
+
+th {
+  text-align: left;
+  color: var(--mu);
+  font-weight: 500;
+  font-size: 12px;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--bd)
+}
+
+td {
+  padding: 9px 8px;
+  border-bottom: 1px solid var(--bd)
+}
+
+tr:last-child td {
+  border: 0
+}
+
+.r {
+  text-align: right
+}
+
+.wrap {
+  overflow-x: auto
+}
+
+.pill {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 600
+}
+
+.completed {
+  background: var(--oks);
+  color: var(--ok)
+}
+
+.pending {
+  background: var(--wns);
+  color: var(--wn)
+}
+
+.failed {
+  background: var(--ers);
+  color: var(--er)
+}
+
+.sm {
+  padding: 3px 9px;
+  font-size: 12px
+}
+
+.mu {
+  color: var(--mu)
+}
+
+.item {
+  padding: 9px 0;
+  border-bottom: 1px solid var(--bd)
+}
+
+.item:last-child {
+  border: 0
+}
+
+@media(max-width:900px) {
+  .stats {
+    grid-template-columns: 1fr 1fr
+  }
+
+  .g2 {
+    grid-template-columns: 1fr
+  }
+}
+
+@media(max-width:760px) {
+  .app {
+    flex-direction: column
+  }
+
+  main {
+    padding: 16px
+  }
+}
