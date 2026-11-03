@@ -10,7 +10,7 @@ const RANGES = {
 const TX = [['Stripe payout', 'Revenue', 4200, 'USD', 'completed', 'Today'], ['AWS', 'Infrastructure', -1284.5, 'USD', 'completed', 'Today'], ['Amara Okafor', 'Contractor', -3200, 'USD', 'pending', 'Yesterday'], ['Lagos Fresh Ltd', 'Invoice INV-1042', 850000, 'NGN', 'completed', 'Oct 30'], ['Figma', 'Software', -180, 'USD', 'completed', 'Oct 30'], ['Acme GmbH', 'Invoice INV-1039', 2400, 'EUR', 'failed', 'Oct 29']];
 
 const goSend = () => { location.href = '../send-money/send.html' };
-const goTx = () => { location.href = '../transactions/transactions.html' };
+const goTx = () => { location.href = '../Transactions/transactions.html' };
 function Chart({ d }) {
   const W = 640, H = 210, P = 28, max = Math.ceil(Math.max(...d.i, ...d.o) / 10) * 10, n = d.l.length, bw = Math.min(22, (W - P * 2) / n / 3);
   const y = v => H - P - (v / max) * (H - P * 2), x = i => P + (i + .5) * (W - P * 2) / n;
@@ -25,7 +25,7 @@ function Chart({ d }) {
 
 function App() {
   const [rg, setRg] = useState('30D'), [page, setPage] = useState('Overview'), [al, setAl] = useState([0, 1]);
-  const [ap, setAp] = useState([{ id: 1, t: 'Bulk payment · 8 contractors', a: '$30,000', by: 'Finance Manager' }, { id: 2, t: 'Expense · Team offsite', a: '$4,250', by: 'Tolu A.', href: '../expenses/expenses.html#EXP-1042' }, { id: 3, t: 'Card limit raise · Marketing', a: '$5,000', by: 'Dev K.', href: '../cards/cards.html' }]);
+  const [ap, setAp] = useState([{ id: 1, t: 'Bulk payment · 8 contractors', a: '$30,000', by: 'Finance Manager' }, { id: 2, t: 'Expense · Team offsite', a: '$4,250', by: 'Tolu A.', href: '../Expenses/expenses.html#EXP-1042' }, { id: 3, t: 'Card limit raise · Marketing', a: '$5,000', by: 'Dev K.', href: '../Cards/cards.html' }]);
   const d = RANGES[rg], inn = d.i.reduce((a, b) => a + b, 0), out = d.o.reduce((a, b) => a + b, 0), total = ACCTS.reduce((a, x) => a + x.v * x.r, 0);
   const alerts = [['USD operating balance covers about 3.1 months of current spend.', 'i'], ['EU Collections is 18% below its usual weekly inflow.', 'w']];
   return <div className="app">
