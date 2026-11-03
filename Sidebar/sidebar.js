@@ -22,6 +22,11 @@
     'Expenses': '../Expenses/expenses.html',
     'Invoices': '../Invoices/invoices.html',
     'Team & Approvals': '../Team/team.html',
+    'Analytics': '../Analytics/analytics.html',
+    'Currency Exchange': '../Exchange/exchange.html',
+    'Bills & Subscriptions': '../Bills/bills.html',
+    'Notifications': '../Notifications/notifications.html',
+    'Settings': '../Settings/settings.html',
     'Crypto': '../Crypto/crypto.html'
   };
 
