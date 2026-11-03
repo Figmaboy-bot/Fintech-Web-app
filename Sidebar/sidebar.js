@@ -21,6 +21,7 @@
     'Cards': '../Cards/cards.html',
     'Expenses': '../Expenses/expenses.html',
     'Invoices': '../Invoices/invoices.html',
+    'Team & Approvals': '../Team/team.html',
     'Crypto': '../Crypto/crypto.html'
   };
 
