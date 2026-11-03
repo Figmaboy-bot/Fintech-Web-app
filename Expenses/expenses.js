@@ -152,9 +152,10 @@ function Create({ init, who, onCreate, close, closeRef }) {
 
 /* ---- page ---- */
 function App() {
-  const [exps, setExps] = useState(seed), [loading, setLoading] = useState(true), [role, setRole] = useState('finance');
+  const hashId = decodeURIComponent(location.hash.slice(1)), linked = seed().find(e => e.id === hashId);
+  const [exps, setExps] = useState(seed), [loading, setLoading] = useState(true), [role, setRole] = useState(linked && canAct(linked, 'admin') && !canAct(linked, 'finance') ? 'admin' : 'finance');
   const [tab, setTab] = useState('review'), [q, setQ] = useState(''), [status, setStatus] = useState('all'), [cat, setCat] = useState('all');
-  const [drawer, setDrawer] = useState(null), [toast, setToast] = useState(null);
+  const [drawer, setDrawer] = useState(linked ? { id: linked.id } : null), [toast, setToast] = useState(null);
   const lastRef = useRef(null), closeRef = useRef(null), nextId = useRef(1043);
   const who = ROLES[role].who, isEmp = role === 'employee';
 

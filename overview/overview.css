@@ -328,3 +328,9 @@ tr:last-child td {
     padding: 16px
   }
 }
+
+/* link-style buttons (e.g. Review on Pending approvals) */
+a.btn {
+  text-decoration: none;
+  display: inline-block
+}

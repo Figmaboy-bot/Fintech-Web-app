@@ -18,11 +18,13 @@
     'Payments': '../send-money/send.html',
     'Transactions': '../transactions/transactions.html',
     'Cards': '../cards/cards.html',
-    'Expenses': '../expenses/expenses.html'
+    'Expenses': '../expenses/expenses.html',
+    'Invoices': '../invoices/invoices.html',
+    'Crypto': '../crypto/crypto.html'
   };
 
   var NAV = [
-    ['WORKSPACE', [['Overview', 'house'], ['Accounts', 'bank'], ['Payments', 'paper-plane-tilt'], ['Transactions', 'arrows-left-right'], ['Cards', 'credit-card']]],
+    ['WORKSPACE', [['Overview', 'house'], ['Accounts', 'bank'], ['Payments', 'paper-plane-tilt'], ['Transactions', 'arrows-left-right'], ['Cards', 'credit-card'], ['Crypto', 'currency-btc']]],
     ['MANAGE', [['Expenses', 'receipt'], ['Invoices', 'file-text'], ['Bills & Subscriptions', 'calendar-check'], ['Team & Approvals', 'users-three']]],
     ['INSIGHTS', [['Analytics', 'chart-line-up'], ['Currency Exchange', 'currency-circle-dollar']]],
     ['OTHERS', [['Notifications', 'bell'], ['Settings', 'gear'], ['Help & Support', 'question']]]

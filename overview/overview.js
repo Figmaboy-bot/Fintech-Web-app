@@ -25,7 +25,7 @@ function Chart({ d }) {
 
 function App() {
   const [rg, setRg] = useState('30D'), [page, setPage] = useState('Overview'), [al, setAl] = useState([0, 1]);
-  const [ap, setAp] = useState([{ id: 1, t: 'Bulk payment · 8 contractors', a: '$30,000', by: 'Finance Manager' }, { id: 2, t: 'Expense · Team offsite', a: '$4,250', by: 'Tolu A.' }, { id: 3, t: 'Card limit raise · Marketing', a: '$5,000', by: 'Dev K.' }]);
+  const [ap, setAp] = useState([{ id: 1, t: 'Bulk payment · 8 contractors', a: '$30,000', by: 'Finance Manager' }, { id: 2, t: 'Expense · Team offsite', a: '$4,250', by: 'Tolu A.', href: '../expenses/expenses.html#EXP-1042' }, { id: 3, t: 'Card limit raise · Marketing', a: '$5,000', by: 'Dev K.', href: '../cards/cards.html' }]);
   const d = RANGES[rg], inn = d.i.reduce((a, b) => a + b, 0), out = d.o.reduce((a, b) => a + b, 0), total = ACCTS.reduce((a, x) => a + x.v * x.r, 0);
   const alerts = [['USD operating balance covers about 3.1 months of current spend.', 'i'], ['EU Collections is 18% below its usual weekly inflow.', 'w']];
   return <div className="app">
@@ -52,7 +52,7 @@ function App() {
           <div className="col">
             <div className="card"><h2><Ic n="seal-check" />Pending approvals</h2>{ap.length === 0 && <p className="mu">All caught up.</p>}
               {ap.map(a => <div className="item" key={a.id}><div className="row"><b>{a.t}</b><span>{a.a}</span></div><div className="row"><span className="mu" style={{ fontSize: 12 }}>by {a.by}</span>
-                <span><button className="btn sm" onClick={() => setAp(ap.filter(x => x.id !== a.id))}>Reject</button> <button className="btn sm p" onClick={() => setAp(ap.filter(x => x.id !== a.id))}>Approve</button></span></div></div>)}</div>
+                {a.href ? <a className="btn sm p" href={a.href}>Review</a> : <span><button className="btn sm" onClick={() => setAp(ap.filter(x => x.id !== a.id))}>Reject</button> <button className="btn sm p" onClick={() => setAp(ap.filter(x => x.id !== a.id))}>Approve</button></span>}</div></div>)}</div>
             <div className="card"><h2><Ic n="calendar-blank" />Upcoming scheduled</h2>
               {[['Nov 5', 'Office rent', '$3,800'], ['Nov 8', 'Gusto payroll', '$18,400'], ['Nov 12', 'Notion annual', '$960']].map(s => <div className="item row" key={s[1]}><span><b>{s[1]}</b><div className="mu" style={{ fontSize: 12 }}>{s[0]}</div></span><span>{s[2]}</span></div>)}</div>
           </div></div></>}
