@@ -15,12 +15,13 @@
   /* Pages that exist, relative to the page that loads this file (every page sits one folder deep). Add a line when a new screen ships. */
   var PAGES = {
     'Overview': '../overview/overview.html',
+    'Accounts': '../Accounts/accounts.html',
     'Payments': '../send-money/send.html',
-    'Transactions': '../transactions/transactions.html',
-    'Cards': '../cards/cards.html',
-    'Expenses': '../expenses/expenses.html',
-    'Invoices': '../invoices/invoices.html',
-    'Crypto': '../crypto/crypto.html'
+    'Transactions': '../Transactions/transactions.html',
+    'Cards': '../Cards/cards.html',
+    'Expenses': '../Expenses/expenses.html',
+    'Invoices': '../Invoices/invoices.html',
+    'Crypto': '../Crypto/crypto.html'
   };
 
   var NAV = [
