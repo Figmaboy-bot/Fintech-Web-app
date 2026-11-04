@@ -11,6 +11,9 @@ const TX = [['Stripe payout', 'Revenue', 4200, 'USD', 'completed', 'Today'], ['A
 
 const goSend = () => { location.href = '../send-money/send.html' };
 const goTx = () => { location.href = '../Transactions/transactions.html' };
+const goFund = () => { location.href = '../Accounts/accounts.html#fund' };
+const goExchange = () => { location.href = '../Exchange/exchange.html' };
+const goInvoice = () => { location.href = '../Invoices/invoices.html#new' };
 function Chart({ d }) {
   const W = 640, H = 210, P = 28, max = Math.ceil(Math.max(...d.i, ...d.o) / 10) * 10, n = d.l.length, bw = Math.min(22, (W - P * 2) / n / 3);
   const y = v => H - P - (v / max) * (H - P * 2), x = i => P + (i + .5) * (W - P * 2) / n;
@@ -33,7 +36,7 @@ function App() {
     <main>
       {page !== 'Overview' ? <><h1>{page}</h1><p className="sub">Not designed yet – start with Overview.</p></> : <>
         <div className="top"><div><h1>Good morning, Tolu</h1><p className="sub">Here is how Northwind Studio is doing today.</p></div>
-          <div className="qa"><button className="btn p" onClick={goSend}><Ic n="paper-plane-tilt" />Send</button><button className="btn"><Ic n="plus-circle" />Add Money</button><button className="btn"><Ic n="arrows-left-right" />Exchange</button><button className="btn"><Ic n="file-text" />Create Invoice</button></div></div>
+          <div className="qa"><button className="btn p" onClick={goSend}><Ic n="paper-plane-tilt" />Send</button><button className="btn" onClick={goFund}><Ic n="plus-circle" />Add Money</button><button className="btn" onClick={goExchange}><Ic n="arrows-left-right" />Exchange</button><button className="btn" onClick={goInvoice}><Ic n="file-text" />Create Invoice</button></div></div>
         {alerts.map((a, i) => al.includes(i) && <div key={i} className={'alert ' + a[1]}><span className="ni"><Ic n={a[1] === 'i' ? 'lightbulb' : 'warning'} w="fill" />{a[0]}</span><button aria-label="Dismiss" onClick={() => setAl(al.filter(x => x !== i))}><Ic n="x" /></button></div>)}
         <div className="stats">
           <div className="card stat"><small>Total balance (USD equivalent)</small><b>{fmt(total)}</b><span className="d up ni" style={{ gap: 4 }}><Ic n="trend-up" s={14} />3.2% vs last month</span></div>

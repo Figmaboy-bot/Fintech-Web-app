@@ -211,7 +211,7 @@ function Detail({ inv, cust, onEdit, onSend, onPay, onVoid, onDelete, onDup, clo
 /* ---- page ---- */
 function App() {
   const [invs, setInvs] = useState(seed), [custs, setCusts] = useState(CUSTS), [loading, setLoading] = useState(true);
-  const [view, setView] = useState({ m: 'list' }), [drawer, setDrawer] = useState(null), [sendFor, setSendFor] = useState(null), [toast, setToast] = useState('');
+  const [view, setView] = useState(() => location.hash === '#new' ? { m: 'edit', id: null } : { m: 'list' }), [drawer, setDrawer] = useState(null), [sendFor, setSendFor] = useState(null), [toast, setToast] = useState('');
   const [tab, setTab] = useState('all'), [q, setQ] = useState('');
   const lastRef = useRef(null), closeRef = useRef(null), nextNum = useRef(1049);
   useEffect(() => { const t = setTimeout(() => setLoading(false), 450); return () => clearTimeout(t) }, []);

@@ -71,7 +71,7 @@ function MoveDialog({ accts, from0, onClose, onMove }) {
 
 function App() {
   const [page, setPage] = useState('Accounts'), [accts, setAccts] = useState(INIT), [sel, setSel] = useState('USD'), [tab, setTab] = useState('Details');
-  const [move, setMove] = useState(false), [toast, setToast] = useState('');
+  const [move, setMove] = useState(false), [toast, setToast] = useState(() => location.hash === '#fund' ? 'To add money, use the US Operating details below' : '');
   useEffect(() => { if (!toast) return; const id = setTimeout(() => setToast(''), 2400); return () => clearTimeout(id); }, [toast]);
   const total = accts.reduce((s, a) => s + a.v * a.r, 0), a = accts.find(x => x.c === sel);
   const patch = (c, fn) => setAccts(l => l.map(x => x.c === c ? fn(x) : x));
