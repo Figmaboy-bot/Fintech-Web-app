@@ -1,5 +1,5 @@
 const { useState, useEffect, useRef } = React;
-const { Ic, Sidebar } = Ledgerly;
+const { Ic, Sidebar } = Montra;
 const fmt = (n, c = 'USD') => new Intl.NumberFormat('en-US', { style: 'currency', currency: c, maximumFractionDigits: c === 'NGN' ? 0 : 2 }).format(n);
 const num = s => parseFloat(String(s).replace(/,/g, ''));
 const TABS = ['Business', 'Profile', 'Security', 'Limits', 'Developers', 'Audit log'];
@@ -23,12 +23,14 @@ function Foot({ close, ok, danger }) { return <div className="qa" style={{ justi
 
 function PwdForm({ onDone, close }) {
   const [a, setA] = useState(''), [b, setB] = useState(''), [c, setC] = useState(''), [err, setErr] = useState('');
-  const go = e => { e.preventDefault();
+  const go = e => {
+    e.preventDefault();
     if (!a) return setErr('Enter your current password.');
     if (b.length < 10 || !/\d/.test(b) || !/[A-Za-z]/.test(b)) return setErr('Use at least 10 characters, with letters and a number.');
     if (b === a) return setErr('Choose a password you haven’t used here before.');
     if (b !== c) return setErr('The new passwords don’t match.');
-    onDone(); close(); };
+    onDone(); close();
+  };
   return <form onSubmit={go} noValidate style={{ display: 'grid', gap: 12 }}>
     <label>Current password<input type="password" autoComplete="current-password" value={a} autoFocus onChange={e => { setA(e.target.value); setErr(''); }} /></label>
     <label>New password<input type="password" autoComplete="new-password" value={b} onChange={e => { setB(e.target.value); setErr(''); }} /></label>
@@ -46,8 +48,10 @@ function TwoFaForm({ onDone, close }) {
 }
 function KeyForm({ onMake, close }) {
   const [n, setN] = useState(''), [sc, setSc] = useState('Read only'), [err, setErr] = useState(''), [key, setKey] = useState(null), [cp, setCp] = useState(false);
-  const go = e => { e.preventDefault(); if (!n.trim()) return setErr('Give the key a name so you can recognise it later.');
-    const k = 'ldg_live_' + Array.from(crypto.getRandomValues(new Uint8Array(16)), x => x.toString(16).padStart(2, '0')).join(''); setKey(k); onMake({ name: n.trim(), scope: sc, tail: k.slice(-4) }); };
+  const go = e => {
+    e.preventDefault(); if (!n.trim()) return setErr('Give the key a name so you can recognise it later.');
+    const k = 'ldg_live_' + Array.from(crypto.getRandomValues(new Uint8Array(16)), x => x.toString(16).padStart(2, '0')).join(''); setKey(k); onMake({ name: n.trim(), scope: sc, tail: k.slice(-4) });
+  };
   if (key) return <div style={{ display: 'grid', gap: 12 }}><p style={{ margin: 0 }}><b>Copy your key now.</b> For your security we only show it once.</p><div className="code">{key}</div>
     <div className="qa" style={{ justifyContent: 'flex-end' }}><button className="btn" onClick={async () => { try { await navigator.clipboard.writeText(key); setCp(true); } catch (e) { setCp(false); } }}><Ic n="copy" />{cp ? 'Copied' : 'Copy key'}</button><button className="btn p" onClick={close}>Done</button></div></div>;
   return <form onSubmit={go} noValidate style={{ display: 'grid', gap: 12 }}>
@@ -73,7 +77,8 @@ function App() {
     if (v.approval > v.transfer) return setLerr('The approval threshold must be at or below the per-transfer limit.');
     if (v.transfer > v.daily) return setLerr('The daily limit must be at least the per-transfer limit.');
     if (v.auto > v.adminOver) return setLerr('Auto-approved expenses must stay under the Admin threshold.');
-    setLerr(''); setLimS(lim); say('Limits saved', 'Settings', 'Changed transaction and approval limits'); };
+    setLerr(''); setLimS(lim); say('Limits saved', 'Settings', 'Changed transaction and approval limits');
+  };
   const tabKey = (i, e) => { const n = e.key === 'ArrowRight' ? (i + 1) % TABS.length : e.key === 'ArrowLeft' ? (i + TABS.length - 1) % TABS.length : null; if (n === null) return; e.preventDefault(); setTab(TABS[n]); document.getElementById('tab-' + n).focus(); };
   const rows = audit.filter(r => (at === 'All' || r[1] === at) && (r[0] + r[2]).toLowerCase().includes(aq.toLowerCase()));
   const Fld = (lbl, obj, set, k, extra = {}) => <label>{lbl}<input value={obj[k]} {...extra} onChange={e => { set({ ...obj, [k]: e.target.value }); setBerr(''); setLerr(''); }} /></label>;
@@ -83,7 +88,7 @@ function App() {
     <Sidebar here="Settings" active={page} badges={{ 'Team & Approvals': 3 }} onNavigate={setPage} />
     <main>
       {page !== 'Settings' ? <><h1>{page}</h1><p className="sub">Not designed yet – go back to Settings.</p></> : <>
-        <div className="top"><div><h1>Settings</h1><p className="sub">Your business, your account and how Ledgerly is secured.</p></div></div>
+        <div className="top"><div><h1>Settings</h1><p className="sub">Your business, your account and how Montra is secured.</p></div></div>
         <div className="tabs" role="tablist" aria-label="Settings sections">{TABS.map((t, i) => <button key={t} id={'tab-' + i} role="tab" aria-selected={tab === t} tabIndex={tab === t ? 0 : -1} onClick={() => { setTab(t); setBerr(''); setLerr(''); }} onKeyDown={e => tabKey(i, e)}>{t}</button>)}</div>
         <div role="tabpanel" aria-labelledby={'tab-' + TABS.indexOf(tab)}>
 

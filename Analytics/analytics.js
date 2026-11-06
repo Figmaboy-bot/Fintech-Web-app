@@ -1,5 +1,5 @@
 const { useState, useMemo } = React;
-const { Ic, Sidebar } = Ledgerly;
+const { Ic, Sidebar } = Montra;
 const fmt = (n, c = 'USD') => new Intl.NumberFormat('en-US', { style: 'currency', currency: c, maximumFractionDigits: c === 'NGN' ? 0 : 2 }).format(n);
 const K = n => fmt(n * 1000, 'USD').replace(/\.00$/, '');
 const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];

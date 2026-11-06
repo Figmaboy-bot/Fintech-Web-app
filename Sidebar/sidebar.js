@@ -1,8 +1,8 @@
 /* global React */
 /* eslint-env browser */
-/* Ledgerly shared sidebar.
+/* Montra shared sidebar.
    Plain JS (no JSX) so it loads from file:// without Babel. Load after React, before the page script.
-   Usage in a page:  const {Ic, Sidebar} = Ledgerly;
+   Usage in a page:  const {Ic, Sidebar} = Montra;
      <Sidebar here="Overview" active="Overview" badges={{'Team & Approvals': 3}} onNavigate={setPage}/>
    here       label of the page this file is (that item stays in-page instead of linking)
    active     label to highlight (defaults to here)
@@ -10,7 +10,7 @@
    onNavigate called with the label for items that have no page yet (omit to show them disabled) */
 (function () {
   var h = React.createElement, useState = React.useState, useEffect = React.useEffect;
-  var KEY = 'ledgerly-theme';
+  var KEY = 'Montra-theme';
 
   /* Pages that exist, relative to the page that loads this file (every page sits one folder deep). Add a line when a new screen ships. */
   var PAGES = {
@@ -82,5 +82,5 @@
       h(ThemeToggle));
   }
 
-  window.Ledgerly = { Ic: Ic, Sidebar: Sidebar, ThemeToggle: ThemeToggle };
+  window.Montra = { Ic: Ic, Sidebar: Sidebar, ThemeToggle: ThemeToggle };
 })();

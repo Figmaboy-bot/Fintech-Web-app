@@ -1,5 +1,5 @@
 const { useState, useEffect, useMemo, useRef } = React;
-const { Ic, Sidebar } = Ledgerly;
+const { Ic, Sidebar } = Montra;
 
 /* DEMO DATA ONLY: prices, balances, addresses and hashes below are made up. */
 const fmt = (n, c = 'USD') => new Intl.NumberFormat('en-US', { style: 'currency', currency: c, maximumFractionDigits: c === 'NGN' ? 0 : 2 }).format(n);

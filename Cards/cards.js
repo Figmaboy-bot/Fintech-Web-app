@@ -1,5 +1,5 @@
 const { useState, useEffect, useMemo, useRef } = React;
-const { Ic, Sidebar } = Ledgerly;
+const { Ic, Sidebar } = Montra;
 
 const fmt = (n, c = 'USD') => new Intl.NumberFormat('en-US', { style: 'currency', currency: c, maximumFractionDigits: c === 'NGN' ? 0 : 2 }).format(n);
 const RATE = { USD: 1, EUR: 1.08, GBP: 1.27, NGN: 0.00065 };

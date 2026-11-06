@@ -1,5 +1,5 @@
 const { useState, useEffect } = React;
-const { Ic, Sidebar } = Ledgerly;
+const { Ic, Sidebar } = Montra;
 const fmt = (n, c = 'USD') => new Intl.NumberFormat('en-US', { style: 'currency', currency: c, maximumFractionDigits: c === 'NGN' ? 0 : 2 }).format(n);
 const OVERVIEW = '../overview/overview.html';
 const ACCTS = [{ c: 'USD', n: 'US Operating', v: 48200, r: 1 }, { c: 'EUR', n: 'EU Collections', v: 12450.75, r: 1.08 }, { c: 'GBP', n: 'UK Payouts', v: 8320.1, r: 1.27 }, { c: 'NGN', n: 'Lagos Local', v: 6450000, r: 0.00065 }];
@@ -40,7 +40,7 @@ function SendMoney() {
   const next = () => { setTouched(true); if (!err) setStep(2) };
   const confirm = () => { setBusy(true); setTimeout(() => { setDone({ id: 'TRF-' + Math.floor(100000 + Math.random() * 900000), ben, acc, n, fee, total, recv, cross, rate, ref, when, date, needsApproval, est }); setBusy(false) }, 900) };
   const reset = () => { setStep(0); setBid(null); setAmt(''); setRef(''); setWhen('now'); setDate(''); setTouched(false); setDone(null); setQ('') };
-  const receipt = r => { const t = ['Ledgerly transfer receipt', 'Reference: ' + r.id, 'To: ' + r.ben.name + ' (' + r.ben.bank + ')', 'Amount: ' + fmt(r.n, r.acc.c), 'Fee: ' + fmt(r.fee, r.acc.c), 'Total debited: ' + fmt(r.total, r.acc.c), 'Recipient gets: ' + fmt(r.recv, r.ben.cur)].join('\n'); const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([t], { type: 'text/plain' })); a.download = r.id + '.txt'; a.click() };
+  const receipt = r => { const t = ['Montra transfer receipt', 'Reference: ' + r.id, 'To: ' + r.ben.name + ' (' + r.ben.bank + ')', 'Amount: ' + fmt(r.n, r.acc.c), 'Fee: ' + fmt(r.fee, r.acc.c), 'Total debited: ' + fmt(r.total, r.acc.c), 'Recipient gets: ' + fmt(r.recv, r.ben.cur)].join('\n'); const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([t], { type: 'text/plain' })); a.download = r.id + '.txt'; a.click() };
 
   if (done) {
     const r = done, later = r.when === 'later', pend = r.needsApproval && !later;

@@ -1,4 +1,4 @@
-/* Ledgerly sidebar. Uses the colour tokens (--sf, --bd, --ac, ...) defined by the page. */
+/* Montra sidebar. Uses the colour tokens (--sf, --bd, --ac, ...) defined by the page. */
 aside {
   width: 232px;
   background: var(--sf);

@@ -1,5 +1,5 @@
 const { useState, useEffect, useMemo, useRef } = React;
-const { Ic, Sidebar } = Ledgerly;
+const { Ic, Sidebar } = Montra;
 
 const fmt = (n, c = 'USD') => new Intl.NumberFormat('en-US', { style: 'currency', currency: c, maximumFractionDigits: c === 'NGN' ? 0 : 2 }).format(n);
 const RATE = { USD: 1, EUR: 1.08, GBP: 1.27, NGN: 0.00065 };
@@ -212,7 +212,7 @@ function App() {
     const esc = v => '"' + String(v).replace(/"/g, '""') + '"';
     const lines = [['Reference', 'Date', 'Merchant', 'Description', 'Category', 'Department', 'Requested by', 'Currency', 'Amount', 'Status'].join(',')]
       .concat(rows.map(e => [e.id, iso(dateOf(e.off)), e.merchant, e.desc, e.cat, e.dept, e.by, e.cur, e.amt, statusOf(e)].map(esc).join(',')));
-    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([lines.join('\n')], { type: 'text/csv' })); a.download = 'ledgerly-expenses.csv'; a.click();
+    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([lines.join('\n')], { type: 'text/csv' })); a.download = 'Montra-expenses.csv'; a.click();
     say(rows.length + ' expenses exported');
   };
 

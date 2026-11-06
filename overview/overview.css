@@ -65,7 +65,7 @@ button {
   background: var(--sf);
   color: var(--tx);
   padding: 7px 13px;
-  border-radius: 8px
+  border-radius: 100px
 }
 
 .btn:hover {
@@ -166,7 +166,7 @@ button {
   display: flex;
   background: var(--bg);
   border: 1px solid var(--bd);
-  border-radius: 8px;
+  border-radius: 100px;
   padding: 2px
 }
 
@@ -175,7 +175,7 @@ button {
   background: none;
   color: var(--mu);
   padding: 3px 10px;
-  border-radius: 6px
+  border-radius: 100px
 }
 
 .seg .on {

@@ -1,7 +1,7 @@
 const { useState, useEffect, useRef } = React;
-const { Ic, ThemeToggle } = Ledgerly;
+const { Ic, ThemeToggle } = Montra;
 
-const KEY = 'ledgerly-kyb';
+const KEY = 'Montra-kyb';
 const STEPS = [['Business details', 'buildings'], ['Business address', 'map-pin'], ['Directors & owners', 'users-three'], ['Documents', 'files'], ['Review & submit', 'seal-check']];
 const COUNTRIES = ['Nigeria', 'Ghana', 'Kenya', 'United Kingdom', 'United States', 'Germany'];
 const TYPES = ['Limited company (Ltd / LLC)', 'Sole proprietorship', 'Partnership', 'Non-profit', 'Other'];
@@ -195,7 +195,7 @@ function Status({ d, setD, say }) {
       {st === 'approved' && <div style={{ marginTop: 14 }}><div className="kv"><span className="mu">Transfer limit</span><span>$50,000 per transfer</span></div><div className="kv"><span className="mu">Accounts</span><span>USD, EUR, GBP and NGN</span></div><div className="kv"><span className="mu">Cards</span><span>Virtual and physical</span></div>
         <div className="nav"><span /><a className="btn p" href="../overview/overview.html">Go to your dashboard</a></div></div>}
       {st === 'rejected' && <div style={{ marginTop: 14 }}><div className="alert e" style={{ marginTop: 0 }}><Ic n="warning" w="fill" />We could not match your registration number to the company registry. Check the number against your certificate and apply again.</div>
-        <div className="nav">{!reset ? <button className="btn" onClick={() => setReset(true)}>Start a new application</button> : <span className="row" style={{ gap: 8 }}><span className="mu sm2">This clears what you entered.</span><button className="btn" onClick={() => setReset(false)}>Cancel</button><button className="btn danger p" onClick={() => { setD(blank()); setReset(false) }}>Start again</button></span>}<a className="btn" href="mailto:support@ledgerly.app">Contact support</a></div></div>}</div>
+        <div className="nav">{!reset ? <button className="btn" onClick={() => setReset(true)}>Start a new application</button> : <span className="row" style={{ gap: 8 }}><span className="mu sm2">This clears what you entered.</span><button className="btn" onClick={() => setReset(false)}>Cancel</button><button className="btn danger p" onClick={() => { setD(blank()); setReset(false) }}>Start again</button></span>}<a className="btn" href="mailto:support@Montra.app">Contact support</a></div></div>}</div>
 
     <div className="card"><h2 style={{ marginBottom: 6 }}><Ic n="list-checks" />Progress</h2>
       <ol className="tl" aria-label="Verification progress">{names.map((n, i) => <li key={n} className={flow[i]}><Ic n={icon[flow[i]]} w={flow[i] === 'todo' ? 'regular' : 'fill'} s={22} /><div><b>{n}</b><div className="sm2">{text[i]}</div></div></li>)}</ol></div>

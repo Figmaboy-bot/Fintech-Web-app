@@ -1,5 +1,5 @@
 const { useState, useEffect, useRef } = React;
-const { Ic, Sidebar } = Ledgerly;
+const { Ic, Sidebar } = Montra;
 const fmt = (n, c = 'USD') => new Intl.NumberFormat('en-US', { style: 'currency', currency: c, maximumFractionDigits: c === 'NGN' ? 0 : 2 }).format(n);
 const COLOR = { USD: 'var(--ac)', EUR: 'var(--ok)', GBP: 'var(--wn)', NGN: 'var(--mu)' };
 /* Same four accounts as Overview and Send money (c = currency, n = name, v = balance, r = rate to USD). Details are sample data. */
@@ -21,7 +21,7 @@ const INIT = [
   },
   {
     c: 'NGN', n: 'Lagos Local', v: 6450000, r: 0.00065, frozen: false, hist: [4.2, 4.6, 4.4, 5, 5.3, 5.1, 5.6, 5.9, 6, 6.2, 6.3, 6.45],
-    det: [['Account name', 'Northwind Studio Inc.'], ['Account number', '0987654321'], ['Bank', 'Ledgerly Partner Bank'], ['Account type', 'Business current'], ['Supports', 'NIP transfers']],
+    det: [['Account name', 'Northwind Studio Inc.'], ['Account number', '0987654321'], ['Bank', 'Montra Partner Bank'], ['Account type', 'Business current'], ['Supports', 'NIP transfers']],
     act: [['Lagos Fresh Ltd', 850000, 'Oct 30'], ['Payroll run', -1900000, 'Oct 28']]
   }
 ];

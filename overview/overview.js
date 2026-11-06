@@ -1,5 +1,5 @@
 const { useState } = React;
-const { Ic, Sidebar } = Ledgerly;
+const { Ic, Sidebar } = Montra;
 const fmt = (n, c = 'USD') => new Intl.NumberFormat('en-US', { style: 'currency', currency: c, maximumFractionDigits: c === 'NGN' ? 0 : 2 }).format(n);
 const ACCTS = [{ c: 'USD', n: 'US Operating', v: 48200, r: 1, ch: 2.4 }, { c: 'EUR', n: 'EU Collections', v: 12450.75, r: 1.08, ch: -0.8 }, { c: 'GBP', n: 'UK Payouts', v: 8320.1, r: 1.27, ch: 1.1 }, { c: 'NGN', n: 'Lagos Local', v: 6450000, r: 0.00065, ch: 0.4 }];
 const RANGES = {

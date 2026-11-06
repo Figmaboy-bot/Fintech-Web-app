@@ -1,5 +1,5 @@
 const { useState, useEffect, useMemo, useRef } = React;
-const { Ic, Sidebar } = Ledgerly;
+const { Ic, Sidebar } = Montra;
 const fmt = (n, c = 'USD') => new Intl.NumberFormat('en-US', { style: 'currency', currency: c, maximumFractionDigits: c === 'NGN' ? 0 : 2 }).format(n);
 const ACCTS = [{ c: 'USD', n: 'US Operating', v: 48200, r: 1 }, { c: 'EUR', n: 'EU Collections', v: 12450.75, r: 1.08 }, { c: 'GBP', n: 'UK Payouts', v: 8320.1, r: 1.27 }, { c: 'NGN', n: 'Lagos Local', v: 6450000, r: 0.00065 }];
 const APPROVAL = 10000; /* same approval limit as Send money */
@@ -92,9 +92,11 @@ function App() {
         <div className="tabs" role="tablist" aria-label="Bills sections">{tabs.map((t, i) => <button key={t[0]} id={'tab-' + i} role="tab" aria-selected={tab === t[0]} tabIndex={tab === t[0] ? 0 : -1} onClick={() => setTab(t[0])} onKeyDown={e => key(i, e)}>{t[0]}<span className="mu">{t[1]}</span></button>)}</div>
         <div role="tabpanel" aria-labelledby={'tab-' + tabs.findIndex(t => t[0] === tab)}>
           {tab === 'Upcoming' && <div className="card"><div className="wrap"><table><thead><tr><th>Vendor</th><th>Due</th><th>Repeats</th><th className="r">Amount</th><th className="r"><span className="sr">Actions</span></th></tr></thead><tbody>
-            {open.map(b => { const [k, t] = duePill(b); return <tr key={b.id}><td><b>{b.vendor}</b><div className="mu fine">{b.cat}{b.auto ? ' · Auto-pay on' : ''}</div></td>
-              <td>{b.status === 'approval' ? <span className="pill pending">Waiting for approval</span> : <span className={'pill ' + k}>{t}</span>}</td><td className="mu">{b.rep === 'None' ? 'One-off' : b.rep}</td><td className="r">{fmt(b.amt, b.cur)}</td>
-              <td><div className="acts">{b.status === 'approval' ? <a className="btn sm" href="../Team/team.html">Review</a> : <button className="btn sm p" onClick={() => { setPerr(''); setModal({ k: 'pay', b }); }}>Pay now</button>}<button className="btn sm" onClick={() => setModal({ k: 'edit', b })}>Edit</button></div></td></tr>; })}
+            {open.map(b => {
+              const [k, t] = duePill(b); return <tr key={b.id}><td><b>{b.vendor}</b><div className="mu fine">{b.cat}{b.auto ? ' · Auto-pay on' : ''}</div></td>
+                <td>{b.status === 'approval' ? <span className="pill pending">Waiting for approval</span> : <span className={'pill ' + k}>{t}</span>}</td><td className="mu">{b.rep === 'None' ? 'One-off' : b.rep}</td><td className="r">{fmt(b.amt, b.cur)}</td>
+                <td><div className="acts">{b.status === 'approval' ? <a className="btn sm" href="../Team/team.html">Review</a> : <button className="btn sm p" onClick={() => { setPerr(''); setModal({ k: 'pay', b }); }}>Pay now</button>}<button className="btn sm" onClick={() => setModal({ k: 'edit', b })}>Edit</button></div></td></tr>;
+            })}
             {open.length === 0 && <tr><td colSpan="5" className="mu">You’re all caught up. Add a bill to keep track of what’s coming.</td></tr>}</tbody></table></div></div>}
 
           {tab === 'Subscriptions' && <>

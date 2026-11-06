@@ -1,5 +1,5 @@
 const { useState, useEffect, useMemo, useRef } = React;
-const { Ic, Sidebar } = Ledgerly;
+const { Ic, Sidebar } = Montra;
 
 const fmt = (n, c = 'USD') => new Intl.NumberFormat('en-US', { style: 'currency', currency: c, maximumFractionDigits: c === 'NGN' ? 0 : 2 }).format(n);
 const RATE = { USD: 1, EUR: 1.08, GBP: 1.27, NGN: 0.00065 };
@@ -30,7 +30,7 @@ const nextRun = i => {
   for (let n = 0; n < 60 && d <= TODAY; n++) { if (i.rec === 'weekly') d.setDate(d.getDate() + 7); else d.setMonth(d.getMonth() + (i.rec === 'monthly' ? 1 : 3)) }
   return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 };
-const link = i => 'pay.ledgerly.app/' + i.id.toLowerCase();
+const link = i => 'pay.Montra.app/' + i.id.toLowerCase();
 
 /* ---- sample data ---- */
 const CUSTS = [

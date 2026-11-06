@@ -1,5 +1,5 @@
 const { useState, useEffect } = React;
-const { Ic, Sidebar } = Ledgerly;
+const { Ic, Sidebar } = Montra;
 const fmt = (n, c = 'USD') => new Intl.NumberFormat('en-US', { style: 'currency', currency: c, maximumFractionDigits: c === 'NGN' ? 0 : 2 }).format(n);
 const rateFmt = n => n.toLocaleString('en-US', { maximumFractionDigits: n >= 100 ? 2 : 4 });
 const FXFEE = 0.006, APPROVAL = 10000, LOCK = 30; /* same fee and approval limit as Send money */
@@ -109,9 +109,11 @@ function App() {
           </div>
           <div className="col">
             <div className="card"><div className="row"><h2><Ic n="chart-line-up" />Live rates</h2><span className="live">Updating</span></div>
-              {PAIRS.map(([f, t]) => { const r = pr(f, t), ch = (r / pr(f, t, open) - 1) * 100; return <div className="rate" key={f + t}>
-                <div><b>{f}/{t}</b><div className="mu fine">1 {f} = {rateFmt(r)} {t}</div></div><Mini d={ticks.map(x => pr(f, t, x))} />
-                <span className={'fine ' + (ch >= 0 ? 'up' : 'dn')}>{ch >= 0 ? '+' : '−'}{Math.abs(ch).toFixed(2)}%</span></div>; })}
+              {PAIRS.map(([f, t]) => {
+                const r = pr(f, t), ch = (r / pr(f, t, open) - 1) * 100; return <div className="rate" key={f + t}>
+                  <div><b>{f}/{t}</b><div className="mu fine">1 {f} = {rateFmt(r)} {t}</div></div><Mini d={ticks.map(x => pr(f, t, x))} />
+                  <span className={'fine ' + (ch >= 0 ? 'up' : 'dn')}>{ch >= 0 ? '+' : '−'}{Math.abs(ch).toFixed(2)}%</span></div>;
+              })}
               <p className="mu fine" style={{ margin: '8px 0 0' }}>Sample rates for the prototype.</p></div>
             <div className="card"><div className="row" style={{ marginBottom: 6 }}><h2><Ic n="bell-ringing" />Rate alerts</h2><button className="btn sm" onClick={() => setModal(true)}><Ic n="plus" s={14} />New alert</button></div>
               {alerts.length === 0 && <p className="mu">No alerts yet. Create one to hear when a rate reaches your target.</p>}

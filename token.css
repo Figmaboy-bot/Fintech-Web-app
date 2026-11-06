@@ -1,11 +1,11 @@
-/* Ledgerly design tokens, theme switching and base reset. Shared by every page. */
+/* Montra design tokens, theme switching and base reset. Shared by every page. */
 :root {
   --bg: #f6f7f9;
   --sf: #fff;
   --tx: #14171f;
   --mu: #6b7280;
   --bd: #e5e7eb;
-  --ac: #3b4cca;
+  --ac: #5226E5;
   --acs: #eceefc;
   --ok: #15803d;
   --oks: #e3f6ea;
@@ -25,7 +25,7 @@
     --tx: #eceef3;
     --mu: #9aa1b0;
     --bd: #2a2e39;
-    --ac: #8b97ff;
+    --ac: #5226E5;
     --acs: #23274a;
     --ok: #4ade80;
     --oks: #143023;
@@ -42,7 +42,7 @@
   --tx: #eceef3;
   --mu: #9aa1b0;
   --bd: #2a2e39;
-  --ac: #8b97ff;
+  --ac: #5226E5;
   --acs: #23274a;
   --ok: #4ade80;
   --oks: #143023;

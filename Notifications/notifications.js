@@ -1,5 +1,5 @@
 const { useState, useEffect } = React;
-const { Ic, Sidebar } = Ledgerly;
+const { Ic, Sidebar } = Montra;
 const fmt = (n, c = 'USD') => new Intl.NumberFormat('en-US', { style: 'currency', currency: c, maximumFractionDigits: c === 'NGN' ? 0 : 2 }).format(n);
 const CATS = [
   ['payments', 'Payments', 'arrow-down-left', 'Money arrives or a payment fails'],

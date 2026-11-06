@@ -1,5 +1,5 @@
 const { useState, useEffect, useMemo, useRef } = React;
-const { Ic, Sidebar } = Ledgerly;
+const { Ic, Sidebar } = Montra;
 
 const fmt = (n, c = 'USD') => new Intl.NumberFormat('en-US', { style: 'currency', currency: c, maximumFractionDigits: c === 'NGN' ? 0 : 2 }).format(n);
 const RATE = { USD: 1, EUR: 1.08, GBP: 1.27, NGN: 0.00065 };
@@ -53,7 +53,7 @@ function Detail({ tx, upd, close, closeRef, say }) {
   const why = inn ? "The payer's bank declined this payment. No money moved." : "The recipient's bank rejected this transfer. Any funds were returned to your account.";
   const copy = () => { try { navigator.clipboard.writeText(tx.id).then(() => say('Reference copied'), () => say('Could not copy')) } catch (e) { say('Could not copy') } };
   const receipt = () => {
-    const t = ['Ledgerly transaction receipt', 'Reference: ' + tx.id, 'Date: ' + when, 'Name: ' + tx.name, 'Description: ' + tx.desc, 'Account: ' + tx.acct, 'Method: ' + tx.method, 'Status: ' + tx.status, 'Amount: ' + signed(tx.amt, tx.cur)].join('\n');
+    const t = ['Montra transaction receipt', 'Reference: ' + tx.id, 'Date: ' + when, 'Name: ' + tx.name, 'Description: ' + tx.desc, 'Account: ' + tx.acct, 'Method: ' + tx.method, 'Status: ' + tx.status, 'Amount: ' + signed(tx.amt, tx.cur)].join('\n');
     const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([t], { type: 'text/plain' })); a.download = tx.id + '.txt'; a.click();
   };
   return <>
@@ -129,7 +129,7 @@ function App() {
     const esc = v => '"' + String(v).replace(/"/g, '""') + '"';
     const lines = [['Date', 'Reference', 'Name', 'Description', 'Category', 'Account', 'Currency', 'Amount', 'Status', 'Note'].join(',')]
       .concat(rows.map(t => [iso(t.d), t.id, t.name, t.desc, t.cat, t.acct, t.cur, t.amt, t.status, t.note].map(esc).join(',')));
-    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([lines.join('\n')], { type: 'text/csv' })); a.download = 'ledgerly-transactions.csv'; a.click();
+    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([lines.join('\n')], { type: 'text/csv' })); a.download = 'Montra-transactions.csv'; a.click();
     setToast(rows.length + ' transactions exported');
   };
   const sortBtn = (k, l) => <button className="th" onClick={() => toggle(k)}>{l}<Ic n={sort.k !== k ? 'caret-up-down' : sort.dir === 'asc' ? 'caret-up' : 'caret-down'} s={12} /></button>;
