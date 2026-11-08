@@ -234,7 +234,7 @@ function App() {
   };
   const exit = () => { setToast('Progress saved'); setTimeout(() => { location.href = '../overview/overview.html' }, 500) };
 
-  const bar = <header className="bar"><div className="logo">Ledger<b>ly</b></div><div className="r">{d.status === 'draft' && <button className="lk" onClick={exit} style={{ color: 'var(--tx)' }}>Save and exit</button>}<ThemeToggle /></div></header>;
+  const bar = <header className="bar"><div className="logo">Montra<b>ly</b></div><div className="r">{d.status === 'draft' && <button className="lk" onClick={exit} style={{ color: 'var(--tx)' }}>Save and exit</button>}<ThemeToggle /></div></header>;
   if (d.status !== 'draft') return <div className="page">{bar}<main className="wiz single"><div style={{ marginBottom: 16 }}><span className="mu sm2">Business verification</span></div><Status d={d} setD={setD} say={setToast} />{toast && <div className="toast" role="status">{toast}</div>}</main></div>;
 
   const titles = [['Tell us about your business', 'We use this to set up your account and verify the company.'], ['Where is your business registered?', 'This must match your registration documents.'], ['Who runs and owns the business?', 'Regulations require us to verify these people.'], ['Upload your documents', 'Clear photos or scans are fine.'], ['Review and submit', 'Check everything before you send it for review.']];

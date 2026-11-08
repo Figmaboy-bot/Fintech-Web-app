@@ -1,0 +1,11 @@
+/* Add money: only what base.css does not cover. */
+.wrapc { max-width: 720px }
+.cur { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px }
+.cur button { border: 1px solid var(--bd); background: var(--sf); color: var(--tx); border-radius: 10px; padding: 8px 14px; font-weight: 600; display: flex; gap: 8px; align-items: center }
+.cur button[aria-checked=true] { border-color: var(--ac); background: var(--acs); color: var(--ac) }
+.ref { font-family: ui-monospace, Menlo, monospace; font-weight: 700; background: var(--bg); border: 1px dashed var(--bd); border-radius: 8px; padding: 2px 8px }
+.kv .v { display: flex; gap: 8px; align-items: center; justify-content: space-between; min-width: 0; overflow-wrap: anywhere }
+.fee { background: var(--bg); border-radius: 10px; padding: 4px 12px; margin: 4px 0 }
+.pend { display: flex; gap: 10px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--bd) }
+.pend:last-child { border: 0 }
+.pend .g { flex: 1; margin: 0; gap: 0 }

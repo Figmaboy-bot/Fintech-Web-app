@@ -11,6 +11,9 @@ const TX = [['Stripe payout', 'Revenue', 4200, 'USD', 'completed', 'Today'], ['A
 
 const goSend = () => { location.href = '../send-money/send.html' };
 const goTx = () => { location.href = '../Transactions/transactions.html' };
+const goFund = () => { location.href = '../AddMoney/addmoney.html' };
+const goExchange = () => { location.href = '../Exchange/exchange.html' };
+const goInvoice = () => { location.href = '../Invoices/invoices.html#new' };
 function Chart({ d }) {
   const W = 640, H = 210, P = 28, max = Math.ceil(Math.max(...d.i, ...d.o) / 10) * 10, n = d.l.length, bw = Math.min(22, (W - P * 2) / n / 3);
   const y = v => H - P - (v / max) * (H - P * 2), x = i => P + (i + .5) * (W - P * 2) / n;
@@ -25,7 +28,7 @@ function Chart({ d }) {
 
 function App() {
   const [rg, setRg] = useState('30D'), [page, setPage] = useState('Overview'), [al, setAl] = useState([0, 1]);
-  const [ap, setAp] = useState([{ id: 1, t: 'Bulk payment · 8 contractors', a: '$30,000', by: 'Finance Manager' }, { id: 2, t: 'Expense · Team offsite', a: '$4,250', by: 'Tolu A.', href: '../Expenses/expenses.html#EXP-1042' }, { id: 3, t: 'Card limit raise · Marketing', a: '$5,000', by: 'Dev K.', href: '../Cards/cards.html' }]);
+  const [ap, setAp] = useState([{ id: 1, t: 'Bulk payment · 8 contractors', a: '$30,000', by: 'Finance Manager', href: '../Bulk/bulk.html' }, { id: 2, t: 'Expense · Team offsite', a: '$4,250', by: 'Tolu A.', href: '../Expenses/expenses.html#EXP-1042' }, { id: 3, t: 'Card limit raise · Marketing', a: '$5,000', by: 'Dev K.', href: '../Cards/cards.html' }]);
   const d = RANGES[rg], inn = d.i.reduce((a, b) => a + b, 0), out = d.o.reduce((a, b) => a + b, 0), total = ACCTS.reduce((a, x) => a + x.v * x.r, 0);
   const alerts = [['USD operating balance covers about 3.1 months of current spend.', 'i'], ['EU Collections is 18% below its usual weekly inflow.', 'w']];
   return <div className="app">
@@ -33,7 +36,7 @@ function App() {
     <main>
       {page !== 'Overview' ? <><h1>{page}</h1><p className="sub">Not designed yet – start with Overview.</p></> : <>
         <div className="top"><div><h1>Good morning, Tolu</h1><p className="sub">Here is how Northwind Studio is doing today.</p></div>
-          <div className="qa"><button className="btn p" onClick={goSend}><Ic n="paper-plane-tilt" />Send</button><button className="btn"><Ic n="plus-circle" />Add Money</button><button className="btn"><Ic n="arrows-left-right" />Exchange</button><button className="btn"><Ic n="file-text" />Create Invoice</button></div></div>
+          <div className="qa"><button className="btn p" onClick={goSend}><Ic n="paper-plane-tilt" />Send</button><button className="btn" onClick={goFund}><Ic n="plus-circle" />Add Money</button><button className="btn" onClick={goExchange}><Ic n="arrows-left-right" />Exchange</button><button className="btn" onClick={goInvoice}><Ic n="file-text" />Create Invoice</button></div></div>
         {alerts.map((a, i) => al.includes(i) && <div key={i} className={'alert ' + a[1]}><span className="ni"><Ic n={a[1] === 'i' ? 'lightbulb' : 'warning'} w="fill" />{a[0]}</span><button aria-label="Dismiss" onClick={() => setAl(al.filter(x => x !== i))}><Ic n="x" /></button></div>)}
         <div className="stats">
           <div className="card stat"><small>Total balance (USD equivalent)</small><b>{fmt(total)}</b><span className="d up ni" style={{ gap: 4 }}><Ic n="trend-up" s={14} />3.2% vs last month</span></div>
@@ -43,7 +46,7 @@ function App() {
         <div className="g g2">
           <div className="card"><div className="row"><h2><Ic n="chart-bar" />Cash flow</h2><div className="seg">{Object.keys(RANGES).map(k => <button key={k} className={rg === k ? 'on' : ''} onClick={() => setRg(k)}>{k}</button>)}</div></div>
             <Chart d={d} /><div className="leg"><span><i style={{ background: 'var(--ok)' }} />Money in</span><span><i style={{ background: 'var(--ac)' }} />Money out</span></div></div>
-          <div className="card"><div className="row" style={{ marginBottom: 6 }}><h2><Ic n="wallet" />Accounts</h2><button className="btn sm">Manage</button></div>
+          <div className="card"><div className="row" style={{ marginBottom: 6 }}><h2><Ic n="wallet" />Accounts</h2><a className="btn sm" href="../Accounts/accounts.html">Manage</a></div>
             {ACCTS.map(a => <div className="acc" key={a.c}><div className="row"><span className="flag">{a.c}</span><div><b>{fmt(a.v, a.c)}</b><div className="mu" style={{ fontSize: 12 }}>{a.n}</div></div></div><span className={'d ni ' + (a.ch >= 0 ? 'up' : 'dn')} style={{ gap: 3 }}><Ic n={a.ch >= 0 ? 'caret-up' : 'caret-down'} w="fill" s={12} />{Math.abs(a.ch)}%</span></div>)}</div></div>
         <div className="g g2">
           <div className="card"><div className="row" style={{ marginBottom: 6 }}><h2><Ic n="arrows-left-right" />Recent transactions</h2><button className="btn sm" onClick={goTx}>View all</button></div>

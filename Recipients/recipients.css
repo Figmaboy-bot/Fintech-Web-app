@@ -1,0 +1,24 @@
+/* Recipients: only what base.css does not already cover. */
+.filters { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 12px }
+.filters select { width: auto }
+.srch { position: relative; flex: 1; min-width: 200px }
+.srch input { padding-left: 34px }
+.srch .si { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--mu); display: flex; pointer-events: none }
+.who { display: flex; align-items: center; gap: 10px; min-width: 0 }
+.who .lnk { background: none; border: 0; padding: 0; color: var(--tx); font-weight: 700; text-align: left }
+.who .lnk:hover { color: var(--ac) }
+tr.rw { cursor: pointer }
+tr.rw:hover td { background: var(--bg) }
+.mono { font-variant-numeric: tabular-nums; letter-spacing: .02em }
+.sec { font-size: 12px; font-weight: 600; letter-spacing: .04em; color: var(--mu); margin: 18px 0 6px }
+.hist { display: grid; grid-template-columns: 64px 1fr auto auto; gap: 10px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--bd) }
+.hist:last-child { border: 0 }
+.dh { padding: 12px 0 4px }
+.dh .big { font-size: 20px; font-weight: 700 }
+.note { display: flex; gap: 10px; padding: 10px 14px; border-radius: 10px; margin: 10px 0 0; align-items: flex-start }
+.note.i { background: var(--acs); color: var(--ac) }
+.note.w { background: var(--wns); color: var(--wn) }
+.note.e { background: var(--ers); color: var(--er) }
+.note .btn { margin-top: 6px }
+.seg.full { width: 100% }
+.seg.full button { flex: 1 }

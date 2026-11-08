@@ -71,7 +71,7 @@ function MoveDialog({ accts, from0, onClose, onMove }) {
 
 function App() {
   const [page, setPage] = useState('Accounts'), [accts, setAccts] = useState(INIT), [sel, setSel] = useState('USD'), [tab, setTab] = useState('Details');
-  const [move, setMove] = useState(false), [toast, setToast] = useState('');
+  const [move, setMove] = useState(false), [toast, setToast] = useState(() => location.hash === '#fund' ? 'To add money, use the US Operating details below' : '');
   useEffect(() => { if (!toast) return; const id = setTimeout(() => setToast(''), 2400); return () => clearTimeout(id); }, [toast]);
   const total = accts.reduce((s, a) => s + a.v * a.r, 0), a = accts.find(x => x.c === sel);
   const patch = (c, fn) => setAccts(l => l.map(x => x.c === c ? fn(x) : x));
@@ -92,7 +92,7 @@ function App() {
       {page !== 'Accounts' ? <><h1>{page}</h1><p className="sub">Not designed yet – go back to Accounts.</p></> : <>
         <div className="top"><div><h1>Accounts</h1><p className="sub">Balances and payment details for Northwind Studio.</p></div>
           <div className="qa"><button className="btn" onClick={() => setMove(true)}><Ic n="arrows-left-right" />Move money</button>
-            <button className="btn p" onClick={() => { setTab('Details'); setToast(`${a.n} funding details are under Details`); }}><Ic n="plus-circle" />Add Money</button></div></div>
+            <a className="btn p" href={`../AddMoney/addmoney.html#${a.c || ''}`}><Ic n="plus-circle" />Add Money</a></div></div>
 
         <div className="card total"><small>Total balance (USD equivalent)</small><b className="big">{fmt(total)}</b>
           <div className="mix" role="img" aria-label="Share of total balance by currency">{accts.map(x => <i key={x.c} title={x.c} style={{ flex: x.v * x.r, background: COLOR[x.c] }} />)}</div>

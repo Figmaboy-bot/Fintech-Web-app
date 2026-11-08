@@ -27,7 +27,8 @@
     'Bills & Subscriptions': '../Bills/bills.html',
     'Notifications': '../Notifications/notifications.html',
     'Settings': '../Settings/settings.html',
-    'Crypto': '../Crypto/crypto.html'
+    'Crypto': '../Crypto/crypto.html',
+    'Help & Support': '../Help/help.html'
   };
 
   var NAV = [
@@ -61,7 +62,7 @@
   function Sidebar(p) {
     var here = p.here, active = p.active || here, badges = p.badges || {}, go = p.onNavigate;
     return h('aside', null,
-      h('div', { className: 'logo' }, 'Ledger', h('b', null, 'ly')),
+      h('div', { className: 'logo' }, 'Mon', h('b', null, 'tra')),
       h('div', { className: 'ws' }, 'Business workspace'),
       h('nav', { 'aria-label': 'Main' }, NAV.map(function (g) {
         return h('div', { key: g[0], className: 'sb-g' },

@@ -1,0 +1,14 @@
+/* Bulk payment: only what base.css does not cover. */
+.wrapb { max-width: 980px }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px }
+.paste { font-family: ui-monospace, Menlo, monospace; font-size: 12px; min-height: 120px }
+.cell { width: 100%; min-width: 90px; padding: 5px 8px }
+.cell.amt { text-align: right; min-width: 100px }
+tr.bad td { background: var(--ers) }
+.rowerr { color: var(--er); font-size: 12px; margin-top: 2px }
+.tot { display: flex; gap: 8px; flex-wrap: wrap; margin: 4px 0 10px }
+.tot .pill { font-size: 13px; padding: 3px 10px }
+.picks { max-height: 280px; overflow: auto; display: grid; gap: 2px }
+.picks .chk { padding: 6px 4px; border-radius: 6px }
+.picks .chk:hover { background: var(--bg) }
+@media(max-width:760px) { .two-col { grid-template-columns: 1fr } }
