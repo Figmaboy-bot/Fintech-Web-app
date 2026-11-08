@@ -34,7 +34,7 @@ const Switch = ({ on, set, label, disabled }) => <button type="button" role="swi
 const Chips = ({ sel, set, disabled }) => <div className="chips" role="group" aria-label="Allowed merchant categories">{CATS.map(c => <button type="button" key={c} className="chip" aria-pressed={sel.includes(c)} disabled={disabled} onClick={() => set(sel.includes(c) ? sel.filter(x => x !== c) : [...sel, c])}>{c}</button>)}</div>;
 function Face({ c, full }) {
   return <div className={'vc ' + c.kind + ' ' + c.status}>
-    <div className="vt"><span className="vb">Ledger<b>ly</b></span>{c.status !== 'active' && <span className="tag">{STATUS[c.status][0]}</span>}</div>
+    <div className="vt"><span className="vb">Montra<b>ly</b></span>{c.status !== 'active' && <span className="tag">{STATUS[c.status][0]}</span>}</div>
     <div className="chip-i" />
     <div className="vn">{full ? '4242 4242 4242 ' + c.last4 : '•••• •••• •••• ' + c.last4}</div>
     <div className="vf"><span>{c.holder}</span><span>EXP {c.exp}</span><span className="kind">{c.kind}</span></div></div>;

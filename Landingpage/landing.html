@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Montraly – Business banking with one Montra</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description"
+    content="Montraly keeps accounts, cards, invoices, expenses and team approvals in one Montra. A portfolio project.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../token.css">
+  <link rel="stylesheet" href="landing.css">
+</head>
+
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-bank" viewBox="0 0 24 24">
+        <path d="M3 10l9-6 9 6M5 10v8M9 10v8M15 10v8M19 10v8M3 20h18" />
+      </symbol>
+      <symbol id="i-send" viewBox="0 0 24 24">
+        <path d="M21 3L10 14M21 3l-7 18-4-7-7-4 18-7z" />
+      </symbol>
+      <symbol id="i-card" viewBox="0 0 24 24">
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="M3 10h18M7 15h3" />
+      </symbol>
+      <symbol id="i-receipt" viewBox="0 0 24 24">
+        <path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3zM9 8h6M9 12h6" />
+      </symbol>
+      <symbol id="i-file" viewBox="0 0 24 24">
+        <path d="M7 3h7l5 5v13H7V3zM14 3v5h5M10 13h6M10 17h6" />
+      </symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24">
+        <path d="M4 20V4M4 20h16M8 16l4-5 3 3 5-7" />
+      </symbol>
+      <symbol id="i-users" viewBox="0 0 24 24">
+        <circle cx="9" cy="8" r="3" />
+        <path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 5.5a3 3 0 0 1 0 5.5M18 14.3c1.8.8 3 2.6 3 4.7" />
+      </symbol>
+      <symbol id="i-coin" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M9 9.5c0-1 1.3-2 3-2s3 .8 3 2-1.3 1.8-3 2.2-3 1-3 2.2 1.3 2 3 2 3-1 3-2M12 6v1.5M12 16.5V18" />
+      </symbol>
+      <symbol id="i-check" viewBox="0 0 24 24">
+        <path d="M5 12.5l4.5 4.5L19 7.5" />
+      </symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24">
+        <path d="M4 7h16M4 12h16M4 17h16" />
+      </symbol>
+      <symbol id="i-x" viewBox="0 0 24 24">
+        <path d="M6 6l12 12M18 6L6 18" />
+      </symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24">
+        <path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z" />
+      </symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="top">
+    <div class="wrap top-in">
+      <a class="logo" href="landing.html" aria-label="Montraly home">Montra<b>ly</b></a>
+      <nav class="top-nav" id="menu" aria-label="Page sections">
+        <a href="#features">Features</a>
+        <a href="#see">See it work</a>
+        <a href="#fees">Fees</a>
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
+        <a class="menu-only" href="../overview/overview.html">Log in</a>
+      </nav>
+      <div class="top-act">
+        <button class="icon-btn" id="theme" type="button" aria-label="Switch to dark mode">
+          <svg class="ic i-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <use href="#i-moon" />
+          </svg>
+          <svg class="ic i-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <use href="#i-sun" />
+          </svg>
+        </button>
+        <a class="btn ghost hide-s" href="../overview/overview.html">Log in</a>
+        <a class="btn pri" href="../Onboarding/onboarding.html">Open an account</a>
+        <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false"
+          aria-controls="menu">
+          <svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+            <use href="#i-menu" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap hero-in">
+        <div class="hero-copy">
+          <h1>One Montra for everything your business earns and spends.</h1>
+          <p class="lede">Accounts, cards, invoices, expenses and team approvals share a single record, so the numbers
+            always match.</p>
+          <div class="cta">
+            <a class="btn pri lg" href="../Onboarding/onboarding.html">Open an account</a>
+            <a class="btn lg" href="../overview/overview.html">Explore the demo</a>
+          </div>
+          <p class="fine">Takes two minutes. No real money, no card needed.</p>
+        </div>
+
+        <figure class="Montra" aria-labelledby="Montra-cap">
+          <div class="Montra-head">
+            <span class="Montra-title">Operating account · USD</span>
+            <span class="Montra-state" id="Montra-state">Demo data</span>
+          </div>
+          <table class="lg-table">
+            <caption class="sr">Recent Montra entries</caption>
+            <thead>
+              <tr>
+                <th scope="col" class="c-date">Date</th>
+                <th scope="col">Description</th>
+                <th scope="col" class="num">Amount</th>
+                <th scope="col" class="num">Balance</th>
+              </tr>
+            </thead>
+            <tbody id="rows" aria-live="polite"></tbody>
+          </table>
+          <figcaption id="Montra-cap" class="Montra-foot">
+            <span class="Montra-try">Post an entry:</span>
+            <button class="btn sm" type="button" data-kind="in">Get paid</button>
+            <button class="btn sm" type="button" data-kind="out">Pay a supplier</button>
+            <button class="btn sm" type="button" data-kind="card">Spend on a card</button>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="wrap facts-wrap">
+        <ul class="facts" aria-label="Sample figures">
+          <li><b>48,000+</b> businesses</li>
+          <li><b>$1.9B</b> sent</li>
+          <li><b>92</b> countries</li>
+          <li><b>2 min</b> to open an account</li>
+        </ul>
+        <p class="facts-note">Sample figures for the demo.</p>
+      </div>
+    </section>
+
+    <section class="sec wrap" id="features" aria-labelledby="features-h">
+      <div class="sec-head">
+        <h2 id="features-h">Everything a small business needs to run its money</h2>
+        <p>Replace the bank portal, the card dashboard, the invoicing tool and the expense spreadsheet with one place.
+        </p>
+      </div>
+      <ul class="feat">
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+            <use href="#i-bank" />
+          </svg>
+          <h3>Accounts</h3>
+          <p>Hold balances in more than one currency, with clear details for getting paid.</p><a
+            href="../Accounts/accounts.html">See Accounts</a>
+        </li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+            <use href="#i-send" />
+          </svg>
+          <h3>Payments</h3>
+          <p>Send money in a few steps, with a review screen before anything leaves.</p><a
+            href="../send-money/send.html">See Payments</a>
+        </li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+            <use href="#i-card" />
+          </svg>
+          <h3>Virtual cards</h3>
+          <p>One card per person or per tool, each with its own limit and a freeze switch.</p><a
+            href="../Cards/cards.html">See Cards</a>
+        </li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+            <use href="#i-receipt" />
+          </svg>
+          <h3>Expenses</h3>
+          <p>Receipts, categories and approvals, so month-end stops being a scramble.</p><a
+            href="../Expenses/expenses.html">See Expenses</a>
+        </li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+            <use href="#i-file" />
+          </svg>
+          <h3>Invoicing</h3>
+          <p>Create, send and track invoices. Paid ones post to your Montra by themselves.</p><a
+            href="../Invoices/invoices.html">See Invoices</a>
+        </li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+            <use href="#i-chart" />
+          </svg>
+          <h3>Cash flow</h3>
+          <p>See what came in, what went out and where the month is heading.</p><a
+            href="../Analytics/analytics.html">See Analytics</a>
+        </li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+            <use href="#i-users" />
+          </svg>
+          <h3>Team and roles</h3>
+          <p>Admins, finance managers, accountants and viewers, each with the access they need.</p><a
+            href="../Team/team.html">See Team</a>
+        </li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+            <use href="#i-coin" />
+          </svg>
+          <h3>Stablecoins</h3>
+          <p>Keep stablecoins next to your cash and swap between currencies when you need to.</p><a
+            href="../Crypto/crypto.html">See Crypto</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="sec alt see" id="see" aria-labelledby="see-h">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 id="see-h">See it work</h2>
+          <p>Four things you'd do in a normal week. Try them here, then open the real screen.</p>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Product tour">
+          <button role="tab" id="t-invoice" aria-controls="p-invoice" aria-selected="true"
+            type="button">Invoices</button>
+          <button role="tab" id="t-card" aria-controls="p-card" aria-selected="false" tabindex="-1"
+            type="button">Cards</button>
+          <button role="tab" id="t-approve" aria-controls="p-approve" aria-selected="false" tabindex="-1"
+            type="button">Approvals</button>
+          <button role="tab" id="t-fx" aria-controls="p-fx" aria-selected="false" tabindex="-1"
+            type="button">Exchange</button>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-invoice" aria-labelledby="t-invoice">
+          <div class="panel-text">
+            <h3>Send an invoice, then watch it get paid</h3>
+            <p>Draft an invoice, send it, and track it from sent to paid. When the money lands, the entry posts to your
+              Montra and the invoice closes itself.</p>
+            <ul class="ticks">
+              <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                  <use href="#i-check" />
+                </svg>Reusable line items and due dates</li>
+              <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                  <use href="#i-check" />
+                </svg>Status at a glance: draft, sent, paid, overdue</li>
+            </ul>
+            <a class="btn pri" href="../Invoices/invoices.html#new">Create an invoice</a>
+          </div>
+          <div class="doc" role="img" aria-label="Sample invoice INV-2042 for 3,150.00 dollars, marked paid">
+            <div class="doc-top"><span class="doc-no">INV-2042</span><span class="pill ok">Paid</span></div>
+            <div class="doc-to">Harbor &amp; Pine</div>
+            <div class="doc-line"><span>Brand refresh, phase 2</span><span class="tn">2,400.00</span></div>
+            <div class="doc-line"><span>Social templates</span><span class="tn">750.00</span></div>
+            <div class="doc-total"><span>Total</span><span class="tn">$3,150.00</span></div>
+          </div>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-card" aria-labelledby="t-card" hidden>
+          <div class="panel-text">
+            <h3>Cards with a limit for each person</h3>
+            <p>Issue a virtual card in seconds, give it a monthly limit, and freeze it the moment something looks off.
+              Each card belongs to a person or a tool, so spend is never anonymous.</p>
+            <ul class="ticks">
+              <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                  <use href="#i-check" />
+                </svg>Spending limits per card</li>
+              <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                  <use href="#i-check" />
+                </svg>Freeze and unfreeze in one click</li>
+            </ul>
+            <a class="btn pri" href="../Cards/cards.html">Open Cards</a>
+          </div>
+          <div class="vcard-wrap">
+            <div class="vcard" role="img"
+              aria-label="Virtual card ending 4821, 1,240 dollars spent of a 2,000 dollar limit">
+              <div class="vcard-top"><span>Montraly</span><span>Ads team</span></div>
+              <div class="vcard-no tn">•••• •••• •••• 4821</div>
+              <div class="bar"><i style="width:62%"></i></div>
+              <div class="vcard-use"><span class="tn">$1,240 spent</span><span class="tn">of $2,000</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-approve" aria-labelledby="t-approve" hidden>
+          <div class="panel-text">
+            <h3>Big spends wait for a yes</h3>
+            <p>Decide who can approve what. A request over the limit stops and asks the right person, and the decision
+              is recorded in the audit log.</p>
+            <ul class="ticks">
+              <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                  <use href="#i-check" />
+                </svg>Approval limits by role</li>
+              <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                  <use href="#i-check" />
+                </svg>Every decision logged</li>
+            </ul>
+            <a class="btn pri" href="../Team/team.html">Open Team &amp; Approvals</a>
+          </div>
+          <div class="ask" id="ask">
+            <div class="ask-who"><span class="ask-av" aria-hidden="true">JA</span>
+              <div>
+                <div class="ask-t">Contractor payment</div>
+                <div class="ask-s">Requested by J. Adeyemi</div>
+              </div>
+              <div class="ask-amt tn">$3,800.00</div>
+            </div>
+            <div class="ask-act" id="ask-act">
+              <button class="btn sm pri" type="button" data-answer="approved">Approve</button>
+              <button class="btn sm" type="button" data-answer="declined">Decline</button>
+            </div>
+            <div class="ask-done" id="ask-done" hidden aria-live="polite"><span class="pill"
+                id="ask-pill"></span><button class="lnk" type="button" id="ask-undo">Undo</button></div>
+          </div>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-fx" aria-labelledby="t-fx" hidden>
+          <div class="panel-text">
+            <h3>Several currencies, and stablecoins beside cash</h3>
+            <p>Hold more than one currency, swap between them, and keep stablecoins next to your bank balance, so you
+              see your whole position at once.</p>
+            <ul class="ticks">
+              <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                  <use href="#i-check" />
+                </svg>See the rate before you swap</li>
+              <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                  <use href="#i-check" />
+                </svg>Stablecoins and cash in one view</li>
+            </ul>
+            <a class="btn pri" href="../Exchange/exchange.html">Open Exchange</a>
+          </div>
+          <div class="swap" role="img" aria-label="Sample swap: 1,000 US dollars to 921.40 euros at a demo rate">
+            <div class="swap-row"><span>You pay</span><b class="tn">1,000.00 USD</b></div>
+            <div class="swap-row"><span>You get</span><b class="tn">921.40 EUR</b></div>
+            <div class="swap-note">Demo rate. No real exchange happens.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="sec wrap" id="replaces" aria-labelledby="replaces-h">
+      <div class="sec-head">
+        <h2 id="replaces-h">One place instead of five tabs</h2>
+        <p>Most small businesses stitch their money together from separate tools. Here is the same week, before and
+          after.</p>
+      </div>
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th scope="col">The job</th>
+            <th scope="col">The usual way</th>
+            <th scope="col">In Montraly</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Get paid</th>
+            <td>A bank portal and a separate invoicing tool</td>
+            <td><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                <use href="#i-check" />
+              </svg>The invoice and the balance live together</td>
+          </tr>
+          <tr>
+            <th scope="row">Spend</th>
+            <td>A company card app, set up by hand</td>
+            <td><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                <use href="#i-check" />
+              </svg>Cards issued from your account, with limits</td>
+          </tr>
+          <tr>
+            <th scope="row">Approve</th>
+            <td>"Can I buy this?" in a group chat</td>
+            <td><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                <use href="#i-check" />
+              </svg>A request that reaches the right person</td>
+          </tr>
+          <tr>
+            <th scope="row">Reconcile</th>
+            <td>A spreadsheet at the end of the month</td>
+            <td><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                <use href="#i-check" />
+              </svg>Already in the Montra as it happens</td>
+          </tr>
+          <tr>
+            <th scope="row">Report</th>
+            <td>Exports, then charts built by hand</td>
+            <td><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                <use href="#i-check" />
+              </svg>A cash-flow view that is always current</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sec alt" id="fees" aria-labelledby="fees-h">
+      <div class="wrap split">
+        <div class="sec-head">
+          <h2 id="fees-h">See the fee before you send</h2>
+          <p>Every transfer shows its fee and what arrives, before you confirm. There are no monthly plans: you pay only
+            when you move money.</p>
+          <ul class="ticks">
+            <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                <use href="#i-check" />
+              </svg>One flat percentage, shown up front</li>
+            <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                <use href="#i-check" />
+              </svg>A review step before anything leaves</li>
+          </ul>
+          <a class="btn pri" href="../send-money/send.html">Send money</a>
+        </div>
+        <form class="calc" id="calc" onsubmit="return false">
+          <label class="calc-in" for="amt"><span>You send</span>
+            <span class="calc-field"><b>$</b><input id="amt" inputmode="decimal" autocomplete="off"
+                value="2,500.00"></span>
+          </label>
+          <input class="calc-range" id="amt-r" type="range" min="100" max="20000" step="100" value="2500"
+            aria-label="Amount to send">
+          <dl class="calc-out">
+            <div>
+              <dt>Fee (0.5%)</dt>
+              <dd class="tn" id="fee">$12.50</dd>
+            </div>
+            <div>
+              <dt>Total taken from your account</dt>
+              <dd class="tn" id="tot">$2,512.50</dd>
+            </div>
+            <div class="big">
+              <dt>Recipient gets</dt>
+              <dd class="tn" id="get">$2,500.00</dd>
+            </div>
+          </dl>
+          <p class="calc-note">Demo fee of 0.5%, with a $0.50 minimum. Real pricing would be set by the business running
+            it.</p>
+        </form>
+      </div>
+    </section>
+    <section class="sec wrap" id="how" aria-labelledby="how-h">
+      <div class="sec-head">
+        <h2 id="how-h">From sign-up to your first payment in three steps</h2>
+      </div>
+      <ol class="steps">
+        <li><span class="step-n" aria-hidden="true">1</span>
+          <h3>Verify your business</h3>
+          <p>Tell us about the company and the people behind it. The guided form saves as you go, so you can leave and
+            come back.</p><a href="../Onboarding/onboarding.html">Start verification</a>
+        </li>
+        <li><span class="step-n" aria-hidden="true">2</span>
+          <h3>Set up your team</h3>
+          <p>Fund your account, issue cards and give each person a role and an approval limit.</p><a
+            href="../Team/team.html">See roles</a>
+        </li>
+        <li><span class="step-n" aria-hidden="true">3</span>
+          <h3>Run the business</h3>
+          <p>Pay suppliers, invoice clients and watch cash flow, all from the same Montra.</p><a
+            href="../overview/overview.html">Open the dashboard</a>
+        </li>
+      </ol>
+    </section>
+
+
+    <section class="sec alt" id="cashflow" aria-labelledby="cashflow-h">
+      <div class="wrap split">
+        <figure class="chart-card">
+          <div class="chart-key"><span><i class="k-in"></i>Money in</span><span><i class="k-out"></i>Money
+              out</span><span class="chart-demo">Demo data</span></div>
+          <svg class="chart" viewBox="0 0 560 260" role="img" aria-labelledby="chart-t" aria-describedby="chart-d">
+            <title id="chart-t">Money in and money out, last 8 weeks</title>
+            <line class="grid" x1="44" x2="552" y1="230.0" y2="230.0" /><text class="axis" x="36" y="234.0"
+              text-anchor="end">$0</text>
+            <line class="grid" x1="44" x2="552" y1="157.3" y2="157.3" /><text class="axis" x="36" y="161.3"
+              text-anchor="end">$3k</text>
+            <line class="grid" x1="44" x2="552" y1="84.7" y2="84.7" /><text class="axis" x="36" y="88.7"
+              text-anchor="end">$6k</text>
+            <line class="grid" x1="44" x2="552" y1="12.0" y2="12.0" /><text class="axis" x="36" y="16.0"
+              text-anchor="end">$9k</text>
+            <rect class="bar-in" x="53.8" y="104.0" width="20" height="126.0" rx="3">
+              <title>Week 1, money in: $5,200</title>
+            </rect>
+            <rect class="bar-out" x="77.8" y="154.9" width="20" height="75.1" rx="3">
+              <title>Week 1, money out: $3,100</title>
+            </rect><text class="axis" x="75.8" y="252" text-anchor="middle">W1</text>
+            <rect class="bar-in" x="117.2" y="130.7" width="20" height="99.3" rx="3">
+              <title>Week 2, money in: $4,100</title>
+            </rect>
+            <rect class="bar-out" x="141.2" y="135.5" width="20" height="94.5" rx="3">
+              <title>Week 2, money out: $3,900</title>
+            </rect><text class="axis" x="139.2" y="252" text-anchor="middle">W2</text>
+            <rect class="bar-in" x="180.8" y="65.3" width="20" height="164.7" rx="3">
+              <title>Week 3, money in: $6,800</title>
+            </rect>
+            <rect class="bar-out" x="204.8" y="128.3" width="20" height="101.7" rx="3">
+              <title>Week 3, money out: $4,200</title>
+            </rect><text class="axis" x="202.8" y="252" text-anchor="middle">W3</text>
+            <rect class="bar-in" x="244.2" y="135.5" width="20" height="94.5" rx="3">
+              <title>Week 4, money in: $3,900</title>
+            </rect>
+            <rect class="bar-out" x="268.2" y="106.5" width="20" height="123.5" rx="3">
+              <title>Week 4, money out: $5,100</title>
+            </rect><text class="axis" x="266.2" y="252" text-anchor="middle">W4</text>
+            <rect class="bar-in" x="307.8" y="55.6" width="20" height="174.4" rx="3">
+              <title>Week 5, money in: $7,200</title>
+            </rect>
+            <rect class="bar-out" x="331.8" y="118.6" width="20" height="111.4" rx="3">
+              <title>Week 5, money out: $4,600</title>
+            </rect><text class="axis" x="329.8" y="252" text-anchor="middle">W5</text>
+            <rect class="bar-in" x="371.2" y="99.2" width="20" height="130.8" rx="3">
+              <title>Week 6, money in: $5,400</title>
+            </rect>
+            <rect class="bar-out" x="395.2" y="111.3" width="20" height="118.7" rx="3">
+              <title>Week 6, money out: $4,900</title>
+            </rect><text class="axis" x="393.2" y="252" text-anchor="middle">W6</text>
+            <rect class="bar-in" x="434.8" y="33.8" width="20" height="196.2" rx="3">
+              <title>Week 7, money in: $8,100</title>
+            </rect>
+            <rect class="bar-out" x="458.8" y="104.0" width="20" height="126.0" rx="3">
+              <title>Week 7, money out: $5,200</title>
+            </rect><text class="axis" x="456.8" y="252" text-anchor="middle">W7</text>
+            <rect class="bar-in" x="498.2" y="77.4" width="20" height="152.6" rx="3">
+              <title>Week 8, money in: $6,300</title>
+            </rect>
+            <rect class="bar-out" x="522.2" y="123.4" width="20" height="106.6" rx="3">
+              <title>Week 8, money out: $4,400</title>
+            </rect><text class="axis" x="520.2" y="252" text-anchor="middle">W8</text>
+          </svg>
+          <figcaption id="chart-d" class="sr">Weekly totals. Money in and money out, in dollars: week 1 in 5,200 out
+            3,100; week 2 in 4,100 out 3,900; week 3 in 6,800 out 4,200; week 4 in 3,900 out 5,100; week 5 in 7,200 out
+            4,600; week 6 in 5,400 out 4,900; week 7 in 8,100 out 5,200; week 8 in 6,300 out 4,400</figcaption>
+        </figure>
+        <div class="sec-head">
+          <h2 id="cashflow-h">Know where the month is heading</h2>
+          <p>Money in and money out, week by week, so you spot a thin month before it arrives instead of after.</p>
+          <p class="net">Over these eight weeks the business took in <b class="tn">$47,000</b>, spent <b
+              class="tn">$35,400</b> and kept <b class="tn ok-t">$11,600</b>.</p>
+          <a class="btn pri" href="../Analytics/analytics.html">Open Analytics</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec wrap" id="mobile" aria-labelledby="mobile-h">
+      <div class="split mob">
+        <div class="phone-wrap">
+          <div class="phone" role="img"
+            aria-label="Montraly on a phone: balance of 12,935 dollars with Add money, Send and Cards buttons and three recent transactions">
+            <div class="ph-notch"></div>
+            <div class="ph-body" aria-hidden="true">
+              <div class="ph-hi">Operating account</div>
+              <div class="ph-bal tn">$12,935.00</div>
+              <div class="ph-acts"><span>Add money</span><span>Send</span><span>Cards</span></div>
+              <div class="ph-list">
+                <div><span>Ad spend</span><b class="tn out">−340.00</b></div>
+                <div><span>Printhouse Ltd</span><b class="tn out">−860.00</b></div>
+                <div><span>INV-2043 paid</span><b class="tn in">+2,750.00</b></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sec-head">
+          <h2 id="mobile-h">Your business fits in your pocket</h2>
+          <p>Every screen is built to work on a phone as well as a desk, so nothing waits until you are back at your
+            laptop.</p>
+          <ul class="ticks">
+            <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                <use href="#i-check" />
+              </svg>Approve a spend between meetings</li>
+            <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                <use href="#i-check" />
+              </svg>Freeze a card the moment it goes missing</li>
+            <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+                <use href="#i-check" />
+              </svg>Check the balance before you pay</li>
+          </ul>
+          <a class="btn pri" href="../overview/overview.html">Open the demo</a>
+        </div>
+      </div>
+    </section>
+    <section class="sec alt who" aria-labelledby="who-h">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 id="who-h">Made for teams that don't have a finance department</h2>
+        </div>
+        <div class="who-grid">
+          <article>
+            <h3>Freelancers and studios</h3>
+            <p>Invoice clients, get paid into the right currency and keep business spending apart from personal.</p>
+          </article>
+          <article>
+            <h3>Agencies and small teams</h3>
+            <p>Give everyone a card with a limit, route big spends to a manager and see who spent what.</p>
+          </article>
+          <article>
+            <h3>Online sellers and startups</h3>
+            <p>Pay suppliers abroad, hold stablecoins next to cash and keep a clean record for your accountant.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec wrap" id="control" aria-labelledby="control-h">
+      <div class="control">
+        <div class="sec-head">
+          <h2 id="control-h">You stay in control of every naira, dollar and euro</h2>
+          <p>These controls are built into the demo, so you can see exactly how they behave.</p>
+        </div>
+        <ul class="ticks big">
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+              <use href="#i-check" />
+            </svg>
+            <div><b>Roles and approval limits</b><span>Spending above a person's limit waits for someone with the
+                authority to say yes.</span></div>
+          </li>
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+              <use href="#i-check" />
+            </svg>
+            <div><b>Card limits and freeze</b><span>Cap each card and switch it off instantly.</span></div>
+          </li>
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+              <use href="#i-check" />
+            </svg>
+            <div><b>Two-factor sign-in</b><span>Add a second step to protect the account.</span></div>
+          </li>
+          <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true">
+              <use href="#i-check" />
+            </svg>
+            <div><b>An audit log</b><span>A record of who did what, and when.</span></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+
+    <section class="sec alt faq-sec" id="faq" aria-labelledby="faq-h">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 id="faq-h">Questions you might have</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Is Montraly a real bank?</summary>
+            <p>No. It's a portfolio project that shows how a business banking product could look and feel. It isn't
+              licensed, and it can't hold or move real money.</p>
+          </details>
+          <details>
+            <summary>Is any of the data real?</summary>
+            <p>None of it. Every name, balance and transaction is made up so you can click around freely.</p>
+          </details>
+          <details>
+            <summary>How would Montraly make money?</summary>
+            <p>Through a small fee on transfers. There are no monthly plans, so you only pay when you move money. The
+              demo doesn't charge anything.</p>
+          </details>
+          <details>
+            <summary>Do I need to sign up to try it?</summary>
+            <p>No. Open any screen and use it. The "Open an account" flow walks through business verification, and it
+              only saves to your own browser.</p>
+          </details>
+          <details>
+            <summary>What is it built with?</summary>
+            <p>React 18 and plain CSS, loaded from a CDN, with no build step. Each screen has its own HTML, CSS and JS,
+              and they share one sidebar and one set of colour tokens.</p>
+          </details>
+          <details>
+            <summary>Can I see the code?</summary>
+            <p>Yes. The project lives on GitHub at Figmaboy-bot/Fintech-Web-app.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="band-h">
+      <div class="wrap band-in">
+        <h2 id="band-h">See the whole thing in five minutes.</h2>
+        <p>Walk through verification, send a payment and approve a spend. No sign-up, no real money.</p>
+        <div class="cta">
+          <a class="btn inv lg" href="../Onboarding/onboarding.html">Open an account</a>
+          <a class="btn inv-ghost lg" href="../overview/overview.html">Explore the demo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-grid">
+      <div class="foot-brand">
+        <span class="logo sm">Montra<b>ly</b></span>
+        <p>One Montra for everything your business earns and spends.</p>
+      </div>
+      <nav aria-label="Workspace">
+        <h3>Workspace</h3>
+        <a href="../overview/overview.html">Overview</a>
+        <a href="../Accounts/accounts.html">Accounts</a>
+        <a href="../send-money/send.html">Payments</a>
+        <a href="../Transactions/transactions.html">Transactions</a>
+        <a href="../Cards/cards.html">Cards</a>
+        <a href="../Crypto/crypto.html">Crypto</a>
+      </nav>
+      <nav aria-label="Manage">
+        <h3>Manage</h3>
+        <a href="../Expenses/expenses.html">Expenses</a>
+        <a href="../Invoices/invoices.html">Invoices</a>
+        <a href="../Bills/bills.html">Bills &amp; Subscriptions</a>
+        <a href="../Team/team.html">Team &amp; Approvals</a>
+        <a href="../Analytics/analytics.html">Analytics</a>
+        <a href="../Exchange/exchange.html">Currency Exchange</a>
+      </nav>
+      <nav aria-label="Project">
+        <h3>Project</h3>
+        <a href="../Onboarding/onboarding.html">Open an account</a>
+        <a href="../Notifications/notifications.html">Notifications</a>
+        <a href="../Settings/settings.html">Settings</a>
+        <a href="https://github.com/Figmaboy-bot/Fintech-Web-app">Source on GitHub</a>
+        <a href="https://sulaimonodeniran.com">Designed by Ola</a>
+      </nav>
+    </div>
+    <div class="wrap foot-base">
+      <p>Montraly is a portfolio project, not a bank. All data is made up and no real money moves.</p>
+    </div>
+
+
+  </footer>
+
+  <script src="landing.js"></script>
+</body>
+
+</html>
