@@ -3,12 +3,6 @@ const { Ic, Sidebar } = Montra;
 const fmt = (n, c = 'USD') => new Intl.NumberFormat('en-US', { style: 'currency', currency: c, maximumFractionDigits: c === 'NGN' ? 0 : 2 }).format(n);
 const OVERVIEW = '../overview/overview.html';
 const ACCTS = [{ c: 'USD', n: 'US Operating', v: 48200, r: 1 }, { c: 'EUR', n: 'EU Collections', v: 12450.75, r: 1.08 }, { c: 'GBP', n: 'UK Payouts', v: 8320.1, r: 1.27 }, { c: 'NGN', n: 'Lagos Local', v: 6450000, r: 0.00065 }];
-const BENS0 = [
-  { id: 1, name: 'Amara Okafor', bank: 'GTBank', acct: '0123456789', cur: 'NGN', type: 'Individual' },
-  { id: 2, name: 'Lagos Fresh Ltd', bank: 'Access Bank', acct: '0456781234', cur: 'NGN', type: 'Business' },
-  { id: 3, name: 'Acme GmbH', bank: 'Deutsche Bank', acct: 'DE89370400440532013000', cur: 'EUR', type: 'Business' },
-  { id: 4, name: 'Harbor Design Ltd', bank: 'Barclays', acct: '20000055779911', cur: 'GBP', type: 'Business' },
-  { id: 5, name: 'Pixel Forge LLC', bank: 'Chase', acct: '000000004821', cur: 'USD', type: 'Business' }];
 const FLAT = { USD: 1, EUR: 1, GBP: 1, NGN: 50 }, FXFEE = 0.006, APPROVAL = 10000, LIMIT = 50000;
 const r2 = x => Math.round(x * 100) / 100;
 const fr = r => r >= 1 ? r.toLocaleString('en-US', { maximumFractionDigits: 2 }) : r.toPrecision(3);
@@ -19,11 +13,14 @@ const goOverview = () => { location.href = OVERVIEW };
 const kv = (k, v, cls) => <div className={'kv ' + (cls || '')} key={k}><span className="mu">{k}</span><span>{v}</span></div>;
 
 function SendMoney() {
-  const [step, setStep] = useState(0), [bens, setBens] = useState(BENS0), [bid, setBid] = useState(null), [q, setQ] = useState(''), [adding, setAdding] = useState(false);
+  const [step, setStep] = useState(0), [bens, setBens] = useState(() => MontraStore.beneficiaries()), [bid, setBid] = useState(() => { const m = /[#&]to=(\d+)/.exec(location.hash); return m && MontraStore.beneficiaries().some(b => String(b.id) === m[1]) ? Number(m[1]) : null; }), [q, setQ] = useState(''), [adding, setAdding] = useState(false);
   const [nb, setNb] = useState({ name: '', bank: '', acct: '', cur: 'USD' });
   const [from, setFrom] = useState('USD'), [amt, setAmt] = useState(''), [ref, setRef] = useState(''), [when, setWhen] = useState('now'), [date, setDate] = useState('');
   const [touched, setTouched] = useState(false), [busy, setBusy] = useState(false), [done, setDone] = useState(null);
   useEffect(() => { window.scrollTo(0, 0) }, [step, done]);
+  const first = React.useRef(true);
+  useEffect(() => { if (first.current) { first.current = false; return; } MontraStore.saveBeneficiaries(bens); }, [bens]);
+  const acctErr = nb.acct.trim() ? MontraStore.checkAccount(nb.cur, nb.acct) : '';
 
   const ben = bens.find(b => b.id === bid), acc = ACCTS.find(a => a.c === from);
   const n = parseFloat(amt) || 0, cross = !!ben && ben.cur !== from;
@@ -35,7 +32,7 @@ function SendMoney() {
   const err = n <= 0 ? 'Enter an amount to send.' : total > acc.v ? `Not enough in ${acc.n}. Available: ${fmt(acc.v, from)}.` : usd > LIMIT ? 'This is above the $50,000 per-transfer limit.' : when === 'later' && !date ? 'Choose a date for the scheduled transfer.' : '';
 
   const list = bens.filter(b => (b.name + ' ' + b.bank).toLowerCase().includes(q.toLowerCase()));
-  const addBen = () => { const b = { id: Date.now(), name: nb.name.trim(), bank: nb.bank.trim() || 'Bank', acct: nb.acct.trim(), cur: nb.cur, type: 'Business' }; setBens([b, ...bens]); setBid(b.id); setAdding(false); setNb({ name: '', bank: '', acct: '', cur: 'USD' }) };
+  const addBen = () => { const b = { id: Date.now(), name: nb.name.trim(), bank: nb.bank.trim() || 'Bank', acct: MontraStore.clean(nb.acct), cur: nb.cur, type: 'Business', country: '', email: '', verified: false, hist: [] }; setBens([b, ...bens]); setBid(b.id); setAdding(false); setNb({ name: '', bank: '', acct: '', cur: 'USD' }) };
   const useMax = () => setAmt(String(Math.max(0, Math.floor((acc.v - FLAT[from]) / (1 + (cross ? FXFEE : 0)) * 100) / 100)));
   const next = () => { setTouched(true); if (!err) setStep(2) };
   const confirm = () => { setBusy(true); setTimeout(() => { setDone({ id: 'TRF-' + Math.floor(100000 + Math.random() * 900000), ben, acc, n, fee, total, recv, cross, rate, ref, when, date, needsApproval, est }); setBusy(false) }, 900) };
@@ -77,8 +74,8 @@ function SendMoney() {
           <div className="field"><label className="f" htmlFor="nn">Name</label><input id="nn" value={nb.name} onChange={e => setNb({ ...nb, name: e.target.value })} placeholder="Business or person" /></div>
           <div className="two"><div className="field"><label className="f" htmlFor="nbk">Bank</label><input id="nbk" value={nb.bank} onChange={e => setNb({ ...nb, bank: e.target.value })} /></div>
             <div className="field"><label className="f" htmlFor="nc">Currency</label><select id="nc" value={nb.cur} onChange={e => setNb({ ...nb, cur: e.target.value })}>{ACCTS.map(a => <option key={a.c}>{a.c}</option>)}</select></div></div>
-          <div className="field"><label className="f" htmlFor="na">Account number or IBAN</label><input id="na" value={nb.acct} onChange={e => setNb({ ...nb, acct: e.target.value })} /></div>
-          <button className="btn p" disabled={!nb.name.trim() || nb.acct.replace(/\s/g, '').length < 6} onClick={addBen}>Save and select</button></div>}
+          <div className="field"><label className="f" htmlFor="na">Account number or IBAN</label><input id="na" value={nb.acct} onChange={e => setNb({ ...nb, acct: e.target.value })} aria-invalid={!!acctErr} />{acctErr && <p className="err" role="alert">{acctErr}</p>}</div>
+          <button className="btn p" disabled={!nb.name.trim() || !nb.acct.trim() || !!acctErr} onClick={addBen}>Save and select</button></div>}
         <div className="field"><label className="f" htmlFor="q">Search saved recipients</label><input id="q" value={q} onChange={e => setQ(e.target.value)} placeholder="Name or bank" /></div>
         <div role="radiogroup" aria-label="Recipients">{list.map(b => <button key={b.id} role="radio" aria-checked={bid === b.id} className="opt" onClick={() => setBid(b.id)}>
           <span className="flag">{b.cur}</span><span className="grow"><b>{b.name}</b><small>{b.bank} · {mask(b)} · {b.type}</small></span>{bid === b.id && <Ic n="check-circle" w="fill" />}</button>)}
@@ -122,7 +119,7 @@ function App() {
     <Sidebar here="Payments" />
     <main>
       <div className="top"><div><h1>Send money</h1><p className="sub">Pay a saved recipient or add a new one. You will review everything before it goes out.</p></div>
-        <button className="btn" onClick={goOverview}><Ic n="arrow-left" s={15} />Overview</button></div>
+        <div className="qa"><a className="btn" href="../Recipients/recipients.html"><Ic n="address-book" s={15} />Recipients</a><a className="btn" href="../Bulk/bulk.html"><Ic n="rows" s={15} />Bulk payment</a><button className="btn" onClick={goOverview}><Ic n="arrow-left" s={15} />Overview</button></div></div>
       <SendMoney />
     </main></div>;
 }

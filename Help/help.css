@@ -1,0 +1,18 @@
+/* Help: only what base.css does not cover. */
+.srch { position: relative }
+.srch input { padding-left: 34px }
+.srch .si { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--mu); display: flex; pointer-events: none }
+.faq { border-bottom: 1px solid var(--bd) }
+.faq:last-child { border: 0 }
+.faq > button { width: 100%; background: none; border: 0; color: var(--tx); text-align: left; padding: 12px 2px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; gap: 10px }
+.faq > div { padding: 0 2px 14px; color: var(--mu); line-height: 1.55 }
+.faq .cv { transition: transform .15s; display: flex }
+.faq > button[aria-expanded=true] .cv { transform: rotate(180deg) }
+.sys { display: flex; align-items: center; gap: 8px; padding: 7px 0; border-bottom: 1px solid var(--bd) }
+.sys:last-child { border: 0 }
+.sys .g { flex: 1; margin: 0 }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--ok); flex: none }
+.msg { padding: 10px 12px; border-radius: 10px; background: var(--bg); margin: 6px 0; line-height: 1.5 }
+.msg.me { background: var(--acs) }
+.msg small { display: block; color: var(--mu); margin-bottom: 2px }
+@media(prefers-reduced-motion:reduce) { .faq .cv { transition: none } }
