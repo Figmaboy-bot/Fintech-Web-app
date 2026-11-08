@@ -66,7 +66,7 @@ function Detail({ b, busy, onVerify, onEdit, onDelete, onFixName, close, closeRe
     {b.vnote === 'format' && <div className="note i"><Ic n="info" w="fill" />{b.cur} accounts can’t be checked against the bank yet. The number format is valid, but double-check the name and bank.</div>}
     {b.verified && <div className="note i"><Ic n="seal-check" w="fill" />The bank shows this account as <b>{b.bankName || b.name}</b>.</div>}
     <div className="acts" style={{ justifyContent: 'flex-start', margin: '14px 0 0' }}>
-      <a className="btn p" href={`../send-money/send.html#to=${b.id}`}><Ic n="paper-plane-tilt" />Send money</a>
+      <a className="btn p" href={`../send-money/send.html#to=${b.id}`} onClick={e => { e.preventDefault(); Montra.openSend(b.id); }}><Ic n="paper-plane-tilt" />Send money</a>
       <button className="btn" onClick={() => onVerify(b)} disabled={busy}>{busy ? 'Checking…' : 'Verify details'}</button>
       <button className="btn" onClick={() => onEdit(b)}><Ic n="pencil-simple" />Edit</button></div>
     <div className="sec">BANK DETAILS</div>
@@ -152,7 +152,7 @@ function App() {
                 <td><div className="who"><span className="flag">{b.cur}</span><div><button className="lnk" onClick={e => { e.stopPropagation(); open(b, e); }}>{b.name}</button><div className="mu fine">{b.country || '—'}{b.cur !== 'NGN' ? ' · International' : ''}</div></div></div></td>
                 <td className="hide-s">{b.bank}<div className="mu fine mono">{mask(b)}</div></td><td className="hide-s">{b.type}</td>
                 <td><span className={'pill ' + p}>{t}</span></td><td className="hide-s mu nw">{last(b)}</td>
-                <td><div className="acts"><a className="btn sm" href={`../send-money/send.html#to=${b.id}`} onClick={e => e.stopPropagation()}>Send</a></div></td></tr>; })}</tbody></table></div>}
+                <td><div className="acts"><a className="btn sm" href={`../send-money/send.html#to=${b.id}`} onClick={e => { e.preventDefault(); e.stopPropagation(); Montra.openSend(b.id); }}>Send</a></div></td></tr>; })}</tbody></table></div>}
       </div>
 
       {sel && cur && <><div className="ov" onClick={close} /><div className="drawer" role="dialog" aria-modal="true" aria-labelledby="dt">
@@ -163,6 +163,7 @@ function App() {
         {SCHEDULED[del.id] ? <div className="alert"><Ic n="warning" w="fill" />{SCHEDULED[del.id]} scheduled payment to {del.name} will be cancelled.</div> : null}
         <div className="row"><button className="btn" onClick={c}>Keep recipient</button><button className="btn d p" onClick={() => { remove(del); c(); }}>Delete</button></div></>}</Modal>}
       {toast && <div className="toast" role="status">{toast}</div>}
+      <MontraSend.Panel />
     </main></div>;
 }
 ReactDOM.createRoot(document.getElementById('root')).render(<App />);

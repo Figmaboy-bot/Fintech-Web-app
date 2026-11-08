@@ -1,0 +1,76 @@
+/* Montra send panel. Everything is scoped under .sp so it cannot clash with a page's own CSS. */
+.sp .btn {text-decoration: none;  display: inline-flex;  align-items: center;  justify-content: center;  gap: 6px;  border: 1px solid var(--bd);  background: var(--sf);  color: var(--tx);  padding: 7px 13px;  border-radius: 8px}
+.sp .btn:hover {border-color: var(--ac)}
+.sp .btn.p {background: var(--ac);  border-color: var(--ac);  color: #fff}
+.sp .btn.sm {padding: 3px 9px;  font-size: 12px}
+.sp .btn:disabled {opacity: .5;  cursor: not-allowed}
+.sp .btn:focus-visible,
+.sp .opt:focus-visible {outline: 2px solid var(--ac);  outline-offset: 2px}
+.sp .alert {display: flex;  align-items: center;  gap: 10px;  padding: 10px 14px;  border-radius: 10px;  margin: 14px 0 0;  background: var(--wns);  color: var(--wn)}
+.sp .alert.i {background: var(--acs);  color: var(--ac)}
+.sp .card {background: var(--sf);  border: 1px solid var(--bd);  border-radius: 12px;  padding: 16px}
+.sp .row {display: flex;  justify-content: space-between;  align-items: center;  gap: 10px}
+.sp .mu {color: var(--mu)}
+.sp .seg {display: flex;  background: var(--bg);  border: 1px solid var(--bd);  border-radius: 8px;  padding: 2px;  width: max-content}
+.sp .seg button {border: 0;  background: none;  color: var(--mu);  padding: 5px 14px;  border-radius: 6px}
+.sp .seg .on {background: var(--sf);  color: var(--tx);  font-weight: 600;  box-shadow: 0 1px 2px #0002}
+.sp .flag {width: 34px;  height: 34px;  border-radius: 50%;  background: var(--acs);  color: var(--ac);  display: grid;  place-items: center;  font-weight: 700;  font-size: 11px;  flex: none}
+.sp input,
+.sp select {font: inherit;  color: var(--tx);  background: var(--sf);  border: 1px solid var(--bd);  border-radius: 8px;  padding: 9px 11px;  width: 100%}
+.sp input:focus,
+.sp select:focus {outline: none;  border-color: var(--ac);  box-shadow: 0 0 0 3px var(--acs)}
+.sp label.f {display: block;  font-size: 12px;  font-weight: 600;  color: var(--mu);  margin: 0 0 5px}
+.sp .field {margin-bottom: 14px}
+.sp .two {display: grid;  grid-template-columns: 1fr 1fr;  gap: 10px}
+.sp .steps {display: flex;  gap: 8px;  margin-bottom: 16px;  flex-wrap: wrap}
+.sp .stp {display: flex;  align-items: center;  gap: 8px;  color: var(--mu);  font-size: 13px}
+.sp .stp i {width: 24px;  height: 24px;  border-radius: 50%;  border: 1px solid var(--bd);  display: grid;  place-items: center;  font-style: normal;  font-size: 12px;  font-weight: 600}
+.sp .stp.on {color: var(--tx);  font-weight: 600}
+.sp .stp.on i {background: var(--ac);  border-color: var(--ac);  color: #fff}
+.sp .stp.ok i {background: var(--oks);  border-color: var(--ok);  color: var(--ok)}
+.sp .stp+.stp:before {content: "";  width: 28px;  height: 1px;  background: var(--bd)}
+.sp .opt {display: flex;  align-items: center;  gap: 12px;  width: 100%;  text-align: left;  background: var(--sf);  color: var(--tx);  border: 1px solid var(--bd);  border-radius: 10px;  padding: 10px 12px;  margin-bottom: 8px}
+.sp .opt:hover {border-color: var(--ac)}
+.sp .opt[aria-checked=true] {border-color: var(--ac);  background: var(--acs)}
+.sp .opt .grow {flex: 1;  min-width: 0}
+.sp .opt small {color: var(--mu);  display: block}
+.sp .amtw {display: flex;  align-items: center;  border: 1px solid var(--bd);  border-radius: 10px;  background: var(--sf)}
+.sp .amtw:focus-within {border-color: var(--ac);  box-shadow: 0 0 0 3px var(--acs)}
+.sp .amtw span {padding: 0 0 0 14px;  color: var(--mu);  font-weight: 600}
+.sp .amtw input {border: 0;  background: none;  box-shadow: none !important;  font-size: 26px;  font-weight: 700;  padding: 10px 14px 10px 8px}
+.sp .err {display: flex;  align-items: center;  gap: 6px;  color: var(--er);  font-size: 13px;  margin-top: 6px}
+.sp .kv {display: flex;  justify-content: space-between;  gap: 12px;  padding: 9px 0;  border-bottom: 1px solid var(--bd)}
+.sp .kv:last-child {border: 0}
+.sp .kv>span:last-child {text-align: right}
+.sp .kv.t {font-weight: 700;  font-size: 15px}
+.sp .actions {display: flex;  justify-content: space-between;  gap: 8px;  margin-top: 18px}
+.sp .tl {list-style: none;  margin: 0;  padding: 0}
+.sp .tl li {display: flex;  align-items: center;  gap: 10px;  padding: 7px 0;  color: var(--mu)}
+.sp .tl .d1 {color: var(--ok)}
+.sp .tl .d2 {color: var(--ac);  font-weight: 600}
+.sp .hero {text-align: center;  padding: 10px 0 14px}
+.sp .hero .big {width: 56px;  height: 56px;  border-radius: 50%;  display: grid;  place-items: center;  margin: 0 auto 10px;  background: var(--oks);  color: var(--ok)}
+.sp .hero .big.w {background: var(--wns);  color: var(--wn)}
+.sp .hero .big.b {background: var(--acs);  color: var(--ac)}
+.sp .hero h1 {margin-bottom: 2px}
+.sp .fine {font-size: 12px}
+.sp .recv {background: var(--bg);  border: 1px solid var(--bd);  border-radius: 10px;  padding: 12px 14px;  margin-bottom: 14px}
+.sp .recv b {font-size: 20px;  display: block}
+
+/* Side panel shell */
+.sp-ov { position: fixed; inset: 0; background: rgba(10, 12, 20, .5); z-index: 40 }
+.sp-drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(520px, 100%); background: var(--bg); border-left: 1px solid var(--bd); z-index: 41; overflow: auto; padding: 20px; animation: sp-slide .18s ease-out; color: var(--tx) }
+.sp-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 16px }
+.sp h2 { font-size: 16px; margin: 0; display: flex; align-items: center; gap: 7px }
+.sp .hero h1 { font-size: 20px; margin: 0 0 2px }
+.sp .sub { color: var(--mu); margin: 2px 0 0 }
+.sp .card { margin-top: 14px }
+.sp .card:first-child { margin-top: 0 }
+.sp-flow > .card:last-child { background: var(--sf) }
+.sp .err { min-height: 0; font-weight: 400; margin: 6px 0 0 }
+.sp .kv { display: flex; grid-template-columns: none }
+.sp .btn { text-decoration: none }
+.sp .two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px }
+@keyframes sp-slide { from { transform: translateX(24px); opacity: 0 } }
+@media (prefers-reduced-motion: reduce) { .sp-drawer { animation: none } }
+@media (max-width: 480px) { .sp-drawer { padding: 14px } .sp .two { grid-template-columns: 1fr } }

@@ -9,7 +9,7 @@ const RANGES = {
 };
 const TX = [['Stripe payout', 'Revenue', 4200, 'USD', 'completed', 'Today'], ['AWS', 'Infrastructure', -1284.5, 'USD', 'completed', 'Today'], ['Amara Okafor', 'Contractor', -3200, 'USD', 'pending', 'Yesterday'], ['Lagos Fresh Ltd', 'Invoice INV-1042', 850000, 'NGN', 'completed', 'Oct 30'], ['Figma', 'Software', -180, 'USD', 'completed', 'Oct 30'], ['Acme GmbH', 'Invoice INV-1039', 2400, 'EUR', 'failed', 'Oct 29']];
 
-const goSend = () => { location.href = '../send-money/send.html' };
+const goSend = () => Montra.openSend();
 const goTx = () => { location.href = '../Transactions/transactions.html' };
 const goFund = () => { location.href = '../AddMoney/addmoney.html' };
 const goExchange = () => { location.href = '../Exchange/exchange.html' };
@@ -59,6 +59,7 @@ function App() {
             <div className="card"><h2><Ic n="calendar-blank" />Upcoming scheduled</h2>
               {[['Nov 5', 'Office rent', '$3,800'], ['Nov 8', 'Gusto payroll', '$18,400'], ['Nov 12', 'Notion annual', '$960']].map(s => <div className="item row" key={s[1]}><span><b>{s[1]}</b><div className="mu" style={{ fontSize: 12 }}>{s[0]}</div></span><span>{s[2]}</span></div>)}</div>
           </div></div></>}
+      <MontraSend.Panel />
     </main></div>;
 }
 ReactDOM.createRoot(document.getElementById('root')).render(<App />);
